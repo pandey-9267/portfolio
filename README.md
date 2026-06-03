@@ -1,11 +1,17 @@
-# Portfolio Website 🚀
+# Portfolio Website 
 
 A modern responsive personal portfolio website built using **React + Vite + Tailwind CSS**.
 This project showcases my skills, projects, and contact information with a clean and modern UI.
 
 ---
 
-# 📌 Features
+# Live Demo
+
+https://abhi-portfolioo.vercel.app/
+
+---
+
+# Features
 
 * Responsive Design
 * Modern UI/UX
@@ -18,7 +24,7 @@ This project showcases my skills, projects, and contact information with a clean
 
 ---
 
-# 🛠️ Tech Stack
+# Tech Stack
 
 * React.js
 * Vite
@@ -53,7 +59,7 @@ portfolio/
 
 ---
 
-# ⚙️ Installation & Setup
+# Installation & Setup
 
 ## 1. Clone Repository
 
@@ -87,7 +93,7 @@ npm run dev
 
 ---
 
-# 🌐 Open in Browser
+# Open in Browser
 
 After running the project, open:
 
@@ -97,7 +103,7 @@ http://localhost:5173
 
 ---
 
-# 📦 Build for Production
+#  Build for Production
 
 ```bash
 npm run build
@@ -105,7 +111,7 @@ npm run build
 
 ---
 
-# 🚀 Deploy on Vercel
+#  Deploy on Vercel
 
 1. Push project to GitHub
 2. Open Vercel
@@ -114,7 +120,7 @@ npm run build
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 Abhishek Pandey
 
