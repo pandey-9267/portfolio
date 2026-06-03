@@ -73,7 +73,7 @@ function App() {
             <div className="absolute right-0 mt-2 w-52 bg-white shadow-xl rounded-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
 
               <a
-                href="/Abhishek_Pandey_Resume.docx"
+              href="/Abhishek_Pandey_Resume.docx"
                 download
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-t-xl"
               >
