@@ -7,6 +7,7 @@ import "./App.css";
 import youtubeImg from "./assets/youtube.png";
 import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
+import profileImg from "./assets/profile.png";
 
 
 
@@ -36,6 +37,7 @@ function App() {
   const navItems = [
     { id: "home", label: "Home", Icon: Home },
     { id: "about", label: "About", Icon: User },
+    { id: "experience", label: "Experience", Icon: Briefcase },
     { id: "projects", label: "Projects", Icon: Briefcase },
     { id: "contact", label: "Contact", Icon: Mail },
   ];
@@ -124,17 +126,14 @@ function App() {
               </div>
           </div>
 
-<div className="flex justify-center md:justify-end">
+         {/* add photo here */}
 
-{/* add photo here */}
-
-  {/* <img
-    src="/profile.png"
-    alt="Abhishek Pandey"className="w-[260px] h-[320px] object-cover rounded-3xl shadow-xl border-4 border-white"
-    
-  /> */}
-
-  
+<div className="flex justify-center md:justify-centre">
+  <img
+    src={profileImg}
+    alt="Abhishek Pandey"
+   className="w-[300px] h-[380px] object-cover rounded-3xl shadow-xl border-4 border-white -translate-y-12 translate-x-18"
+  />
 </div>
 
 </div>
@@ -219,12 +218,58 @@ function App() {
           </div>
         </section>
 
+
+
+{/* Experience */}
+<section
+  id="experience"
+  className="mt-[120px] px-6 max-w-[1280px] mx-auto"
+>
+  <div className="text-center mb-12">
+    <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
+      Experience
+    </h2>
+    <p className="text-base text-on-surface-variant">
+      Professional experience and industry exposure.
+    </p>
+  </div>
+
+  <div className="bg-surface-container-low p-6 rounded-2xl shadow-sm border border-outline-variant">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+      <div>
+        <h3 className="text-2xl font-bold text-primary">
+          Full Stack Developer Intern
+        </h3>
+        <p className="text-secondary font-semibold">
+          Talking Crooks
+        </p>
+      </div>
+
+      <span className="text-sm text-on-surface-variant">
+        June 2026 – Present
+      </span>
+    </div>
+
+    <ul className="mt-4 space-y-2 text-on-surface-variant">
+      <li>• Developed responsive user interfaces using React.js and Tailwind CSS.</li>
+      <li>• Built reusable frontend components for web applications.</li>
+      <li>• Collaborated with team members using Git and GitHub workflows.</li>
+      <li>• Worked on improving website performance and user experience.</li>
+      <li>• Participated in real-world development and deployment processes.</li>
+    </ul>
+  </div>
+</section>
+
+
+
         {/* Projects */}
+
+
         <section id="projects" className="mt-[120px] px-6 max-w-[1280px] mx-auto">
           <div className="flex justify-between items-end mb-8">
             <div>
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
-                Selected Projects
+               Projects
               </h2>
 
               <p className="text-base text-on-surface-variant">
