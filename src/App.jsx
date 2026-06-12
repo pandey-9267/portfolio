@@ -9,7 +9,22 @@ import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
 import profileImg from "./assets/profile.png";
 
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
 
+import {
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss,
+  SiVercel,
+} from "react-icons/si";
 
 import {
   UserCircle,
@@ -75,7 +90,7 @@ function App() {
             <div className="absolute right-0 mt-2 w-52 bg-white shadow-xl rounded-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
 
               <a
-              href="/Abhishek_Pandey_Resume.docx"
+                href="/Abhishek_Pandey_Resume.docx"
                 download
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-t-xl"
               >
@@ -95,19 +110,27 @@ function App() {
           id="home"
           className="px-6 max-w-[1280px] mx-auto min-h-[707px] flex flex-col justify-center items-start gap-8 py-8"
         >
-         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
             <div className="space-y-4 max-w-2xl">
               <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
                 Available for Hire
               </p>
               <h1 className="font-[var(--font-display)] font-extrabold text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary">
-                Hi, I'm Abhishek pandey. <br />
-                <span className="text-on-primary-container">Crafting digital experiences.</span>
+                Hi, I'm Abhishek Pandey.
               </h1>
+
+              <p className="text-xl md:text-2xl font-semibold text-secondary">
+                MERN Stack Developer | React Developer
+              </p>
+
+              <h2 className="font-[var(--font-display)] font-bold text-[40px] md:text-[56px] leading-tight text-on-primary-container">
+                Crafting digital experiences.
+              </h2>
               <p className="text-lg text-on-surface-variant leading-relaxed">
-                A passionate beginner designer and developer focused on building clean, user-centric,
-                and accessible interfaces. Currently exploring the intersection of creative code and
-                modern minimalism.
+                MERN Stack Developer and B.Tech CSE student passionate about building modern web applications using React.js, Node.js, Express.js, and MongoDB.
+
+                Currently seeking internship opportunities to apply my skills, contribute to real-world projects, and grow as a software developer.
+
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
                 <a
@@ -124,19 +147,19 @@ function App() {
                   Let's Connect
                 </a>
               </div>
+            </div>
+
+            {/* add photo here */}
+
+            <div className="flex justify-center md:justify-centre">
+              <img
+                src={profileImg}
+                alt="Abhishek Pandey"
+                className="w-[300px] h-[380px] object-cover rounded-3xl shadow-xl border-4 border-white -translate-y-12 translate-x-18"
+              />
+            </div>
+
           </div>
-
-         {/* add photo here */}
-
-<div className="flex justify-center md:justify-centre">
-  <img
-    src={profileImg}
-    alt="Abhishek Pandey"
-   className="w-[300px] h-[380px] object-cover rounded-3xl shadow-xl border-4 border-white -translate-y-12 translate-x-18"
-  />
-</div>
-
-</div>
         </section>
 
         {/* About */}
@@ -220,45 +243,119 @@ function App() {
 
 
 
-{/* Experience */}
-<section
-  id="experience"
-  className="mt-[120px] px-6 max-w-[1280px] mx-auto"
->
+        {/* Experience */}
+        <section
+          id="experience"
+          className="mt-[120px] px-6 max-w-[1280px] mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
+              Experience
+            </h2>
+            <p className="text-base text-on-surface-variant">
+              Professional experience and industry exposure.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+              <div>
+                <h3 className="text-3xl font-bold text-primary">
+                  Full Stack Developer Intern
+                </h3>
+
+                <p className="text-lg font-semibold text-blue-600 mt-1">
+                  Talking Crooks
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
+                    React.js
+                  </span>
+
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+                    Node.js
+                  </span>
+
+                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">
+                    MongoDB
+                  </span>
+
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                    Git & GitHub
+                  </span>
+                </div>
+              </div>
+
+              <span className="text-sm font-semibold text-gray-500">
+                June 2026 – Present
+              </span>
+            </div>
+
+            <ul className="mt-6 space-y-3 text-gray-700">
+              <li>• Developed responsive web interfaces using React.js and Tailwind CSS.</li>
+
+              <li>• Built reusable frontend components for scalable applications.</li>
+
+              <li>• Collaborated with team members using Git and GitHub workflows.</li>
+
+              <li>• Improved website performance, UI consistency, and user experience.</li>
+
+              <li>• Participated in real-world development, testing, and deployment processes.</li>
+            </ul>
+          </div>
+        </section>
+
+
+
+
+
+{/* Tech Stack */}
+<section className="mt-[120px] px-6 max-w-[1280px] mx-auto">
   <div className="text-center mb-12">
-    <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
-      Experience
+    <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
+      Tech Stack
     </h2>
+
     <p className="text-base text-on-surface-variant">
-      Professional experience and industry exposure.
+      Technologies I use to build modern web applications.
     </p>
   </div>
 
-  <div className="bg-surface-container-low p-6 rounded-2xl shadow-sm border border-outline-variant">
-    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-      <div>
-        <h3 className="text-2xl font-bold text-primary">
-          Full Stack Developer Intern
-        </h3>
-        <p className="text-secondary font-semibold">
-          Talking Crooks
-        </p>
+  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+    {[
+       { icon: <FaHtml5 size={40} color="#E34F26" />, name: "HTML5" },
+  { icon: <FaCss3Alt size={40} color="#1572B6" />, name: "CSS3" },
+  { icon: <FaJs size={40} color="#F7DF1E" />, name: "JavaScript" },
+  { icon: <FaReact size={40} color="#61DAFB" />, name: "React.js" },
+  { icon: <FaNodeJs size={40} color="#339933" />, name: "Node.js" },
+  { icon: <SiExpress size={40} color="#000000" />, name: "Express.js" },
+  { icon: <SiMongodb size={40} color="#47A248" />, name: "MongoDB" },
+  { icon: <SiTailwindcss size={40} color="#06B6D4" />, name: "Tailwind CSS" },
+  { icon: <FaGitAlt size={40} color="#F05032" />, name: "Git" },
+  { icon: <FaGithub size={40} color="#181717" />, name: "GitHub" },
+  { icon: <SiVercel size={40} color="#000000" />, name: "Vercel" },
+
+    ].map((tech) => (
+      <div
+        key={tech.name}
+        className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
+      >
+        {tech.icon}
+        <span className="font-semibold text-primary">
+          {tech.name}
+        </span>
       </div>
-
-      <span className="text-sm text-on-surface-variant">
-        June 2026 – Present
-      </span>
-    </div>
-
-    <ul className="mt-4 space-y-2 text-on-surface-variant">
-      <li>• Developed responsive user interfaces using React.js and Tailwind CSS.</li>
-      <li>• Built reusable frontend components for web applications.</li>
-      <li>• Collaborated with team members using Git and GitHub workflows.</li>
-      <li>• Worked on improving website performance and user experience.</li>
-      <li>• Participated in real-world development and deployment processes.</li>
-    </ul>
+    ))}
   </div>
 </section>
+
+
+
+
+
+
+
 
 
 
@@ -267,9 +364,9 @@ function App() {
 
         <section id="projects" className="mt-[120px] px-6 max-w-[1280px] mx-auto">
           <div className="flex justify-between items-end mb-8">
-            <div>
+            <div >
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
-               Projects
+                Projects
               </h2>
 
               <p className="text-base text-on-surface-variant">
@@ -277,13 +374,14 @@ function App() {
               </p>
             </div>
           </div>
+
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}
             slidesPerView={3}
             loop={true}
             autoplay={{
-              delay: 2500,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             breakpoints={{
@@ -305,9 +403,9 @@ function App() {
                 img: youtubeImg,
                 tags: ["HTML", "CSS"],
                 title: "YouTube Clone",
-                desc: "A responsive YouTube homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
-                cta: "View Project",
-                link: "https://clone-y0utube.netlify.app/",
+                desc: "A responsive YouTube homepage clone built using pure HTML and CSS.",
+                live: "https://clone-y0utube.netlify.app/",
+                github: "https://github.com/pandey-9267/youtube-clone",
               },
 
               {
@@ -317,6 +415,7 @@ function App() {
                 desc: "A responsive Netflix homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
                 cta: "View Project",
                 link: "https://clone-netfllx.netlify.app/",
+                github: "https://github.com/pandey-9267/Netflix-clone",
               },
 
               {
@@ -326,6 +425,7 @@ function App() {
                 desc: "A full-stack task management web application built using MongoDB, Express.js, React.js, and Node.js with task creation, updating, and authentication features.",
                 cta: "View Project",
                 link: "https://task-manager-app-abhishek.vercel.app/",
+                github: "https://github.com/pandey-9267/F_S_D/tree/main/DAY_6/MERN-task-manager",
               },
 
               {
@@ -334,8 +434,11 @@ function App() {
                 title: "Weather App",
                 desc: "A responsive weather application built using React.js with modern UI and real-time weather updates.",
                 cta: "View Project",
-                link: "https://your-weather-app.vercel.app/",
+                // link: "https://your-weather-app.vercel.app/",
+                // github: "https://github.com/pandey-9267/weather-app",
               },
+
+
             ].map((p) => (
               <SwiperSlide key={p.title}>
                 <div className="group rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant hover:shadow-xl transition-all h-full flex flex-col">
@@ -367,14 +470,31 @@ function App() {
                       {p.desc}
                     </p>
 
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-secondary font-semibold uppercase tracking-widest hover:underline mt-auto"
-                    >
-                      {p.cta}
-                    </a>
+                    {/* when the project is completed then show this text otherwise hide it */}
+
+                    {/* <p className="text-sm text-green-600 font-medium">
+                      ✔ Completed Project
+                    </p> */}
+
+                    <div className="flex gap-3 mt-auto pt-4">
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition"
+                      >
+                        Live Demo
+                      </a>
+
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-100 transition"
+                      >
+                        GitHub
+                      </a>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
