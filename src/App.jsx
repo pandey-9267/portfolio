@@ -9,6 +9,9 @@ import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
 import profileImg from "./assets/profile.png";
 
+import { FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+
 import {
   FaHtml5,
   FaCss3Alt,
@@ -43,6 +46,7 @@ import {
 
 const ABOUT_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuANI9rAAjGnSTxjteoKrYbneU0T8Sa25woK_RWYuTh5rnid0y7wSuDvvIr3l0HpxMVwdVd4nJLVZ8CdOaF-SV1OYrFTQsXQC3fVA81IFGhLiJgOXwWJ7_PIpTnw-lMBzPci3OvmapgrEGqPABlmXNMAVRqQTtFgvpiE1RoOlx-4tPtasC2iP8YzSVqzXlScK08HlOBuQecICa0EJcTC6xMUzS7WMzgXbu-HeeoOSJe4GSvF5bDyQsbS4G5ay5uyXl2cvfuUdtGKcdgH";
+
 const PROJECT1_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAGYoNP6EujoTyvy-jM7z5Z6GjhmN4eC8g-qxNVA6qNm-gd0AXE25eQ-irHT4fgkqx2mAqqUqhI36zfbbnGCfmXv8TvCtw2e71GVZlJdd4kBsBdgSGoNlXBf-DgNAxkemtLf6RWFAAABa_sRXtmxy-by1UR9a6PkXhVcKayqg2hOatIg8PlC8R5PTtHS7IrwtBVjqfO1QoKxOi0cQUYKJtr7eixunxUkbHvb2nec-hxjujsXGWm7PYCn1i3c1x0YRf47kN1BvejjODv";
 
@@ -81,23 +85,50 @@ function App() {
           </nav>
           <div className="relative group shrink-0">
             <button
-              className="p-2 active:scale-95 transition"
+              className="p-2 rounded-full hover:bg-gray-100 transition-all"
               aria-label="Account"
             >
-              <UserCircle className="text-primary" />
+              <UserCircle className="text-primary size-8 hover:scale-110 transition-all" />
             </button>
 
-            <div className="absolute right-0 mt-2 w-52 bg-white shadow-xl rounded-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div className="absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
 
               <a
                 href="/Abhishek_Pandey_Resume.docx"
                 download
-                className="block px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-t-xl"
+                className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
                 Download Resume
               </a>
 
 
+
+              <a
+                href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://leetcode.com/u/pandey-9267/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
+              >
+                LeetCode
+              </a>
+
+              <a
+                href="https://github.com/pandey-9267"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-b-xl"
+              >
+                GitHub
+              </a>
 
             </div>
           </div>
@@ -124,7 +155,7 @@ function App() {
               </p>
 
               <h2 className="font-[var(--font-display)] font-bold text-[40px] md:text-[56px] leading-tight text-on-primary-container">
-                Crafting digital experiences.
+                Turning ideas into fast, scalable MERN applications.
               </h2>
               <p className="text-lg text-on-surface-variant leading-relaxed">
                 MERN Stack Developer and B.Tech CSE student passionate about building modern web applications using React.js, Node.js, Express.js, and MongoDB.
@@ -141,47 +172,50 @@ function App() {
                   <ArrowRight className="size-4" />
                 </a>
                 <a
-                  href="#contact"
-                  className="border border-outline text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-surface-variant transition-all"
-                >
-                  Let's Connect
-                </a>
+                 href="#contact"
+  className="border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
+>
+  Let's Connect
+</a>
               </div>
             </div>
 
             {/* add photo here */}
 
-            <div className="flex justify-center md:justify-centre">
+            {/* for moving the photo a little bit up and right and adding a white border around it and also adding a shadow to it */}
+
+            <div className="flex justify-center md:justify-end">
               <img
                 src={profileImg}
                 alt="Abhishek Pandey"
                 className="w-[300px] h-[380px] object-cover rounded-3xl shadow-xl border-4 border-white -translate-y-12 translate-x-18"
               />
+              {/* edit the translate values for moving all side  */}
             </div>
 
           </div>
         </section>
 
         {/* About */}
-        <section id="about" className="mt-[120px] px-6 max-w-[1280px] mx-auto">
+        <section id="about" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-5 rounded-xl overflow-hidden shadow-md">
               <img src={ABOUT_IMG} alt="Designer working in a bright studio" className="w-full aspect-square object-cover" />
             </div>
             <div className="md:col-span-7 space-y-6">
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] leading-tight tracking-tight text-primary">
-                Warm Introduction
+                About Me
               </h2>
               <p className="text-lg text-on-surface-variant">
-                I’m a curious and passionate MERN Stack Developer currently pursuing B.Tech in Computer Science Engineering. My journey into tech started with a simple interest in how websites and apps actually work behind the scenes, and over time, that curiosity turned into a genuine passion for web development.
+                I'm a curious and passionate MERN Stack Developer currently pursuing B.Tech in Computer Science Engineering. I enjoy building responsive, user-friendly web applications using React.js, Node.js, Express.js, and MongoDB.
               </p>
 
               <p className="text-lg text-on-surface-variant">
-                Based in Delhi, I’ve been learning and building projects using React.js, Node.js, Express.js, and MongoDB. I enjoy creating clean, responsive, and user-friendly applications that solve real problems and improve user experience.
+                During my internship, I worked on real-world web development tasks, improved existing applications, and collaborated with developers to deliver scalable solutions
               </p>
 
               <p className="text-lg text-on-surface-variant">
-                As a fresher, I’m constantly exploring new technologies, improving my skills, and challenging myself with practical projects. I’m currently looking for opportunities where I can learn, grow, and contribute as a developer while gaining real industry experience.
+                I'm actively learning Data Structures & Algorithms and modern web technologies while seeking opportunities to grow as a software developer and contribute to impactful projects.
               </p>
               <div className="flex gap-8 pt-4">
                 <div>
@@ -194,10 +228,18 @@ function App() {
                 </div>
                 <div>
                   <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                    100%
+                    2 mo
                   </p>
                   <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
-                    Dedication
+                    Internship Experience
+                  </p>
+                </div>
+                <div>
+                  <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
+                    10+
+                  </p>
+                  <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
+                    GitHub Repos
                   </p>
                 </div>
               </div>
@@ -205,37 +247,62 @@ function App() {
           </div>
         </section>
 
-        {/* Skills */}
-        <section className="mt-[120px] px-6 max-w-[1280px] mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
-              Core Skills
+
+
+
+
+
+        {/* Tech Stack */}
+        <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
+              Tech Stack
             </h2>
-            <p className="text-base text-on-surface-variant max-w-xl mx-auto">
-              A snapshot of my current toolkit as I grow as a professional.
+
+            <p className="text-base text-on-surface-variant">
+              Technologies I use to build modern web applications.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          {/* Core Tech Stack */}
+
+
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+
+
             {[
-              { Icon: Palette, title: "Frontend", desc: "React.js, HTML, CSS, Tailwind" },
+              { icon: <FaHtml5 size={40} color="#E34F26" />, name: "HTML5" },
+              { icon: <FaCss3Alt size={40} color="#1572B6" />, name: "CSS3" },
+              { icon: <FaJs size={40} color="#F7DF1E" />, name: "JavaScript" },
+              { icon: <FaReact size={40} color="#61DAFB" />, name: "React.js" },
+              { icon: <FaNodeJs size={40} color="#339933" />, name: "Node.js" },
+              { icon: <SiExpress size={40} color="#000000" />, name: "Express.js" },
+              { icon: <SiMongodb size={40} color="#47A248" />, name: "MongoDB" },
+              { icon: <SiTailwindcss size={40} color="#06B6D4" />, name: "Tailwind CSS" },
+            ].map((tech) => (
+              <div key={tech.name} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all">
+                {tech.icon}
+                <span className="font-semibold text-primary">{tech.name}</span>
+              </div>
+            ))}
+          </div>
 
-              { Icon: Code, title: "Development", desc: "JavaScript, Node.js, Express.js" },
-
-              { Icon: MonitorSmartphone, title: "Responsive", desc: "Mobile-First, Responsive UI" },
-
-              { Icon: Gauge, title: "Database", desc: "MongoDB, REST APIs, CRUD" },
-            ].map(({ Icon, title, desc }) => (
-              <div
-                key={title}
-                className="bg-surface-container-low p-6 rounded-xl shadow-sm hover:-translate-y-1 transition-all"
-              >
-                <Icon className="text-secondary size-9 mb-4" strokeWidth={1.5} />
-                <h3 className="font-[var(--font-display)] font-semibold text-2xl text-primary mb-2">
-                  {title}
-                </h3>
-                <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant">
-                  {desc}
-                </p>
+          {/* Tools & Platforms */}
+          <div className="mt-12 text-center mb-6">
+            <h3 className="font-semibold text-lg text-on-surface-variant uppercase tracking-widest">
+              Tools & Platforms
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {[
+              { icon: <FaGitAlt size={40} color="#F05032" />, name: "Git" },
+              { icon: <FaGithub size={40} color="#181717" />, name: "GitHub" },
+              { icon: <SiVercel size={40} color="#000000" />, name: "Vercel" },
+            ].map((tech) => (
+              <div key={tech.name} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all">
+                {tech.icon}
+                <span className="font-semibold text-primary">{tech.name}</span>
               </div>
             ))}
           </div>
@@ -246,7 +313,7 @@ function App() {
         {/* Experience */}
         <section
           id="experience"
-          className="mt-[120px] px-6 max-w-[1280px] mx-auto"
+          className="mt-[80px] px-6 max-w-[1280px] mx-auto"
         >
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
@@ -309,70 +376,18 @@ function App() {
 
 
 
-
-{/* Tech Stack */}
-<section className="mt-[120px] px-6 max-w-[1280px] mx-auto">
-  <div className="text-center mb-12">
-    <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
-      Tech Stack
-    </h2>
-
-    <p className="text-base text-on-surface-variant">
-      Technologies I use to build modern web applications.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-    {[
-       { icon: <FaHtml5 size={40} color="#E34F26" />, name: "HTML5" },
-  { icon: <FaCss3Alt size={40} color="#1572B6" />, name: "CSS3" },
-  { icon: <FaJs size={40} color="#F7DF1E" />, name: "JavaScript" },
-  { icon: <FaReact size={40} color="#61DAFB" />, name: "React.js" },
-  { icon: <FaNodeJs size={40} color="#339933" />, name: "Node.js" },
-  { icon: <SiExpress size={40} color="#000000" />, name: "Express.js" },
-  { icon: <SiMongodb size={40} color="#47A248" />, name: "MongoDB" },
-  { icon: <SiTailwindcss size={40} color="#06B6D4" />, name: "Tailwind CSS" },
-  { icon: <FaGitAlt size={40} color="#F05032" />, name: "Git" },
-  { icon: <FaGithub size={40} color="#181717" />, name: "GitHub" },
-  { icon: <SiVercel size={40} color="#000000" />, name: "Vercel" },
-
-    ].map((tech) => (
-      <div
-        key={tech.name}
-        className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
-      >
-        {tech.icon}
-        <span className="font-semibold text-primary">
-          {tech.name}
-        </span>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
         {/* Projects */}
 
 
-        <section id="projects" className="mt-[120px] px-6 max-w-[1280px] mx-auto">
-          <div className="flex justify-between items-end mb-8">
-            <div >
-              <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
-                Projects
-              </h2>
+        <section id="projects" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
+              Projects
+            </h2>
 
-              <p className="text-base text-on-surface-variant">
-                Realizing ideas through design and code.
-              </p>
-            </div>
+            <p className="text-base text-on-surface-variant">
+              Realizing ideas through design and code.
+            </p>
           </div>
 
           <Swiper
@@ -400,42 +415,36 @@ function App() {
           >
             {[
               {
+                img: taskmanagerImg,
+                tags: ["MERN", "Full Stack"],
+                title: "TaskFlow",
+                desc: "A full-stack task management web application built using MongoDB, Express.js, React.js, and Node.js with task creation, updating, and authentication features.",
+                live: "https://task-manager-app-abhishek.vercel.app/",
+                github: "https://github.com/pandey-9267/F_S_D/tree/main/DAY_6/MERN-task-manager",
+              },
+              {
+                img: PROJECT1_IMG,
+                tags: ["React", "Frontend"],
+                title: "Weather App",
+                desc: "A responsive weather application built using React.js with modern UI and real-time weather updates.",
+                live: "https://your-weather-app.vercel.app/",
+                github: "https://github.com/pandey-9267/weather-app",
+              },
+              {
+                img: netflixImg,
+                tags: ["HTML", "CSS"],
+                title: "Netflix Clone",
+                desc: "A responsive Netflix homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
+                live: "https://clone-netfllx.netlify.app/",
+                github: "https://github.com/pandey-9267/Netflix-clone",
+              },
+              {
                 img: youtubeImg,
                 tags: ["HTML", "CSS"],
                 title: "YouTube Clone",
                 desc: "A responsive YouTube homepage clone built using pure HTML and CSS.",
                 live: "https://clone-y0utube.netlify.app/",
                 github: "https://github.com/pandey-9267/youtube-clone",
-              },
-
-              {
-                img: netflixImg,
-                tags: ["HTML", "CSS"],
-                title: "Netflix Clone",
-                desc: "A responsive Netflix homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
-                cta: "View Project",
-                link: "https://clone-netfllx.netlify.app/",
-                github: "https://github.com/pandey-9267/Netflix-clone",
-              },
-
-              {
-                img: taskmanagerImg,
-                tags: ["MERN", "Full Stack"],
-                title: "TaskFlow",
-                desc: "A full-stack task management web application built using MongoDB, Express.js, React.js, and Node.js with task creation, updating, and authentication features.",
-                cta: "View Project",
-                link: "https://task-manager-app-abhishek.vercel.app/",
-                github: "https://github.com/pandey-9267/F_S_D/tree/main/DAY_6/MERN-task-manager",
-              },
-
-              {
-                img: PROJECT1_IMG,
-                tags: ["React", "Frontend"],
-                title: "Weather App",
-                desc: "A responsive weather application built using React.js with modern UI and real-time weather updates.",
-                cta: "View Project",
-                // link: "https://your-weather-app.vercel.app/",
-                // github: "https://github.com/pandey-9267/weather-app",
               },
 
 
@@ -501,6 +510,77 @@ function App() {
             ))}
           </Swiper>
         </section>
+
+
+        {/* Coding Profiles */}
+        <section className="mt-[80px] px-6 max-w-[1280px] mx-auto"
+>
+          <div className="text-center mb-12">
+            <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
+              Coding Profiles
+            </h2>
+
+            <p className="text-base text-on-surface-variant">
+              Platforms where I practice, learn, and build.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <a
+              href="https://github.com/pandey-9267"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+            >
+              <div className="mb-3">
+                <FaGithub size={40} color="#181717" />
+              </div>
+              <h3 className="text-xl font-bold">GitHub</h3>
+              <p className="text-gray-600 mt-2">
+                10+ repositories, projects, and contributions.
+              </p>
+            </a>
+
+            <a
+              href="https://leetcode.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+            >
+              <div className="mb-3">
+                <SiLeetcode size={40} color="#FFA116" />
+              </div>
+              <h3 className="text-xl font-bold">LeetCode</h3>
+              <p className="text-gray-600 mt-2">
+                Active learner focused on DSA and problem solving.
+              </p>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+            >
+              <div className="mb-3">
+                <FaLinkedin size={40} color="#0A66C2" />
+              </div>
+              <h3 className="text-xl font-bold">LinkedIn</h3>
+              <p className="text-gray-600 mt-2">
+                Professional profile, networking, and career updates.
+              </p>
+            </a>
+
+          </div>
+        </section>
+
+
+
+
+
+
+
 
         {/* Contact */}
         <section
@@ -573,46 +653,40 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="font-[var(--font-display)] font-semibold text-2xl text-primary">
-              PORTFOLIO
-            </span>
-            <span className="text-sm text-on-surface-variant">
-              © 2026 Portfolio. All rights reserved.
-            </span>
-          </div>
-          <div className="flex gap-6">
-            <a
-              href="https://www.linkedin.com/in/abhishekpandey-03a4b4304/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
-            >
-              LinkedIn
-            </a>
+     <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
+  <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
+    <div className="flex flex-col items-center md:items-start gap-2">
+      <span className="font-[var(--font-display)] font-semibold text-2xl text-primary">
+        PORTFOLIO
+      </span>
+      <span className="text-sm text-on-surface-variant">
+        Building scalable web apps, one project at a time.
+      </span>
+      <span className="text-xs text-on-surface-variant">
+        © 2026 Abhishek Pandey. All rights reserved.
+      </span>
+    </div>
 
-            <a
-              href="https://github.com/pandey-9267"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
-            >
-              GitHub
-            </a>
+    <nav className="flex gap-6">
+      <a href="#home" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Home</a>
+      <a href="#about" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">About</a>
+      <a href="#projects" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Projects</a>
+      <a href="#contact" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Contact</a>
+    </nav>
 
-            <a
-              href="https://leetcode.com/u/pandey-9267/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
-            >
-              LeetCode
-            </a>
-          </div>
-        </div>
-      </footer>
+    <div className="flex gap-6">
+      <a href="http://www.linkedin.com/in/abhishek-pandey-03a4b4304" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+        LinkedIn
+      </a>
+      <a href="https://github.com/pandey-9267" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+        GitHub
+      </a>
+      <a href="https://leetcode.com/u/pandey-9267/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+        LeetCode
+      </a>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
