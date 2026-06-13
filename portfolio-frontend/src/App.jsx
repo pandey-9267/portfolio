@@ -467,7 +467,7 @@ function App() {
                 tags: ["HTML", "CSS"],
                 title: "Netflix Clone",
                 desc: "A responsive Netflix homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
-                live: "https://clone-netfllx.netlify.app/",
+                live: "https://clone-netfllx.vercel.app/",
                 github: "https://github.com/pandey-9267/Netflix-clone",
               },
               {
