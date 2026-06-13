@@ -44,8 +44,6 @@ import {
 } from "lucide-react";
 
 
-const ABOUT_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuANI9rAAjGnSTxjteoKrYbneU0T8Sa25woK_RWYuTh5rnid0y7wSuDvvIr3l0HpxMVwdVd4nJLVZ8CdOaF-SV1OYrFTQsXQC3fVA81IFGhLiJgOXwWJ7_PIpTnw-lMBzPci3OvmapgrEGqPABlmXNMAVRqQTtFgvpiE1RoOlx-4tPtasC2iP8YzSVqzXlScK08HlOBuQecICa0EJcTC6xMUzS7WMzgXbu-HeeoOSJe4GSvF5bDyQsbS4G5ay5uyXl2cvfuUdtGKcdgH";
 
 const PROJECT1_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAGYoNP6EujoTyvy-jM7z5Z6GjhmN4eC8g-qxNVA6qNm-gd0AXE25eQ-irHT4fgkqx2mAqqUqhI36zfbbnGCfmXv8TvCtw2e71GVZlJdd4kBsBdgSGoNlXBf-DgNAxkemtLf6RWFAAABa_sRXtmxy-by1UR9a6PkXhVcKayqg2hOatIg8PlC8R5PTtHS7IrwtBVjqfO1QoKxOi0cQUYKJtr7eixunxUkbHvb2nec-hxjujsXGWm7PYCn1i3c1x0YRf47kN1BvejjODv";
@@ -240,7 +238,7 @@ function App() {
         <section id="about" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-5 rounded-xl overflow-hidden shadow-md">
-              <img src={ABOUT_IMG} alt="Designer working in a bright studio" className="w-full aspect-square object-cover" />
+              <img src={profileImg} alt="Designer working in a bright studio" className="w-full aspect-square object-cover" />
             </div>
             <div className="md:col-span-7 space-y-6">
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] leading-tight tracking-tight text-primary">
