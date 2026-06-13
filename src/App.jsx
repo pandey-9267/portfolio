@@ -4,6 +4,10 @@ import "swiper/css";
 
 import "./App.css";
 
+
+import { useState } from "react";
+import axios from "axios";
+
 import youtubeImg from "./assets/youtube.png";
 import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
@@ -49,6 +53,47 @@ const PROJECT1_IMG =
 
 
 function App() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/contact",
+        formData
+      );
+
+      setStatus("Message sent successfully ✅");
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      console.log(res.data);
+    } catch (error) {
+      setStatus("Failed to send message ❌");
+      console.log(error);
+    }
+  };
+
+
   const navItems = [
     { id: "home", label: "Home", Icon: Home },
     { id: "about", label: "About", Icon: User },
@@ -206,7 +251,7 @@ function App() {
               </p>
 
               <p className="text-lg text-on-surface-variant">
-               Currently working as a Full Stack Developer Intern at Talking Crooks, contributing to real-world web applications using React.js, Node.js, Express.js, and MongoDB.
+                Currently working as a Full Stack Developer Intern at Talking Crooks, contributing to real-world web applications using React.js, Node.js, Express.js, and MongoDB.
               </p>
 
               <p className="text-lg text-on-surface-variant">
@@ -596,33 +641,85 @@ function App() {
 
             <form
               className="glass-card p-8 rounded-2xl space-y-4 shadow-xl"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
             >
-              {[
-                { label: "Full Name", type: "text", placeholder: "Your name" },
-                { label: "Email Address", type: "email", placeholder: "email@example.com" },
-              ].map((f) => (
-                <div className="space-y-2" key={f.label}>
-                  <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
-                    {f.label}
-                  </label>
-                  <input
-                    type={f.type}
-                    placeholder={f.placeholder}
-                    className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
-                  />
-                </div>
-              ))}
               <div className="space-y-2">
                 <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
-                  Message
+                  Full Name
                 </label>
+
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="email@example.com"
+                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="email@example.com"
+                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
+                />
+              </div>
+              <div className="space-y-2">
+                <label>Message</label>
+
                 <textarea
                   rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell me about your project..."
                   className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
                 />
               </div>
+
+              {status && (
+                <p className="text-center text-white font-medium">
+                  {status}
+                </p>
+              )}
+
               <button
                 type="submit"
                 className="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl text-sm font-semibold uppercase tracking-widest hover:brightness-105 active:scale-95 transition-all"
@@ -632,7 +729,7 @@ function App() {
             </form>
           </div>
         </section>
-      </main>
+        `</main>
 
       {/* Footer */}
       <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
