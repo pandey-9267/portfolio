@@ -7,7 +7,10 @@ import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 
-console.log(process.env.MONGO_URI);
+if (!process.env.MONGO_URI) {
+  console.error("Missing MONGO_URI environment variable. Add it in Render dashboard or in .env before starting the backend.");
+  process.exit(1);
+}
 
 const app = express();
 
