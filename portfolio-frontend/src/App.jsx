@@ -672,35 +672,9 @@ function App() {
                   className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
-                  Full Name
-                </label>
+             
 
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
-                  Email Address
-                </label>
-
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="email@example.com"
-                  className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
-                />
-              </div>
+             
               <div className="space-y-2">
                 <label>Message</label>
 
