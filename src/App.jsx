@@ -36,10 +36,6 @@ import {
   Briefcase,
   Mail,
   ArrowRight,
-  Palette,
-  Code,
-  MonitorSmartphone,
-  Gauge,
   MapPin,
 } from "lucide-react";
 
@@ -77,9 +73,8 @@ function App() {
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold text-xs md:text-sm tracking-widest uppercase hover:text-secondary transition-colors ${i === 0 ? "text-primary font-bold" : "text-on-surface-variant"
                   }`}
               >
-                <Icon className="size-4 md:hidden" />
+                <Icon className="size-4" />
                 <span className="hidden md:inline">{label}</span>
-                <span className="md:hidden">{label}</span>
               </a>
             ))}
           </nav>
@@ -139,14 +134,14 @@ function App() {
         {/* Hero */}
         <section
           id="home"
-          className="px-6 max-w-[1280px] mx-auto min-h-[707px] flex flex-col justify-center items-start gap-8 py-8"
+          className="px-6 max-w-[1280px] mx-auto min-h-screen flex flex-col justify-center items-start gap-8 py-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
             <div className="space-y-4 max-w-2xl">
               <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
                 Available for Hire
               </p>
-              <h1 className="font-[var(--font-display)] font-extrabold text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary">
+              <h1 className="font-[var(--font-display)] font-extrabold text-[40px] sm:text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary">
                 Hi, I'm Abhishek Pandey.
               </h1>
 
@@ -154,7 +149,7 @@ function App() {
                 MERN Stack Developer | React Developer
               </p>
 
-              <h2 className="font-[var(--font-display)] font-bold text-[40px] md:text-[56px] leading-tight text-on-primary-container">
+              <h2 className="font-[var(--font-display)] font-bold text-[28px] sm:text-[40px] md:text-[56px] leading-tight text-on-primary-container">
                 Turning ideas into fast, scalable MERN applications.
               </h2>
               <p className="text-lg text-on-surface-variant leading-relaxed">
@@ -172,11 +167,11 @@ function App() {
                   <ArrowRight className="size-4" />
                 </a>
                 <a
-                 href="#contact"
-  className="border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
->
-  Let's Connect
-</a>
+                  href="#contact"
+                  className="border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
+                >
+                  Let's Connect
+                </a>
               </div>
             </div>
 
@@ -188,7 +183,7 @@ function App() {
               <img
                 src={profileImg}
                 alt="Abhishek Pandey"
-                className="w-[300px] h-[380px] object-cover rounded-3xl shadow-xl border-4 border-white -translate-y-12 translate-x-18"
+                className="w-[220px] sm:w-[260px] md:w-[300px] h-auto object-cover rounded-3xl shadow-xl border-4 border-white md:-translate-y-12 md:translate-x-10"
               />
               {/* edit the translate values for moving all side  */}
             </div>
@@ -211,13 +206,13 @@ function App() {
               </p>
 
               <p className="text-lg text-on-surface-variant">
-                During my internship, I worked on real-world web development tasks, improved existing applications, and collaborated with developers to deliver scalable solutions
+               Currently working as a Full Stack Developer Intern at Talking Crooks, contributing to real-world web applications using React.js, Node.js, Express.js, and MongoDB.
               </p>
 
               <p className="text-lg text-on-surface-variant">
                 I'm actively learning Data Structures & Algorithms and modern web technologies while seeking opportunities to grow as a software developer and contribute to impactful projects.
               </p>
-              <div className="flex gap-8 pt-4">
+              <div className="flex flex-wrap gap-6 pt-4">
                 <div>
                   <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
                     5+
@@ -246,11 +241,6 @@ function App() {
             </div>
           </div>
         </section>
-
-
-
-
-
 
         {/* Tech Stack */}
         <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
@@ -327,7 +317,7 @@ function App() {
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
               <div>
-                <h3 className="text-3xl font-bold text-primary">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary">
                   Full Stack Developer Intern
                 </h3>
 
@@ -373,11 +363,7 @@ function App() {
           </div>
         </section>
 
-
-
-
         {/* Projects */}
-
 
         <section id="projects" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="text-center mb-12">
@@ -394,6 +380,7 @@ function App() {
             modules={[Autoplay]}
             spaceBetween={30}
             slidesPerView={3}
+            autoHeight={false}
             loop={true}
             autoplay={{
               delay: 3500,
@@ -449,7 +436,7 @@ function App() {
 
 
             ].map((p) => (
-              <SwiperSlide key={p.title}>
+              <SwiperSlide key={p.title} className="h-full">
                 <div className="group rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant hover:shadow-xl transition-all h-full flex flex-col">
                   <div className="aspect-video overflow-hidden">
                     <img
@@ -479,11 +466,6 @@ function App() {
                       {p.desc}
                     </p>
 
-                    {/* when the project is completed then show this text otherwise hide it */}
-
-                    {/* <p className="text-sm text-green-600 font-medium">
-                      ✔ Completed Project
-                    </p> */}
 
                     <div className="flex gap-3 mt-auto pt-4">
                       <a
@@ -514,7 +496,7 @@ function App() {
 
         {/* Coding Profiles */}
         <section className="mt-[80px] px-6 max-w-[1280px] mx-auto"
->
+        >
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
               Coding Profiles
@@ -543,7 +525,7 @@ function App() {
             </a>
 
             <a
-              href="https://leetcode.com/"
+              href="https://leetcode.com/u/pandey-9267/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -585,7 +567,7 @@ function App() {
         {/* Contact */}
         <section
           id="contact"
-          className="mt-[120px] mx-6 max-w-[1280px] md:mx-auto py-8 bg-primary-container rounded-3xl text-on-primary"
+          className="mt-[80px] mx-4 md:mx-auto max-w-[1280px] py-8 bg-primary-container rounded-3xl text-on-primary"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
             <div className="space-y-6">
@@ -653,40 +635,33 @@ function App() {
       </main>
 
       {/* Footer */}
-     <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
-  <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
-    <div className="flex flex-col items-center md:items-start gap-2">
-      <span className="font-[var(--font-display)] font-semibold text-2xl text-primary">
-        PORTFOLIO
-      </span>
-      <span className="text-sm text-on-surface-variant">
-        Building scalable web apps, one project at a time.
-      </span>
-      <span className="text-xs text-on-surface-variant">
-        © 2026 Abhishek Pandey. All rights reserved.
-      </span>
-    </div>
+      <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
+        <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <span className="font-[var(--font-display)] font-semibold text-2xl text-primary">
+              PORTFOLIO
+            </span>
+            <span className="text-sm text-on-surface-variant">
+              Building scalable web apps, one project at a time.
+            </span>
+            <span className="text-xs text-on-surface-variant">
+              © 2026 Abhishek Pandey. All rights reserved.
+            </span>
+          </div>
 
-    <nav className="flex gap-6">
-      <a href="#home" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Home</a>
-      <a href="#about" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">About</a>
-      <a href="#projects" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Projects</a>
-      <a href="#contact" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">Contact</a>
-    </nav>
-
-    <div className="flex gap-6">
-      <a href="http://www.linkedin.com/in/abhishek-pandey-03a4b4304" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
-        LinkedIn
-      </a>
-      <a href="https://github.com/pandey-9267" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
-        GitHub
-      </a>
-      <a href="https://leetcode.com/u/pandey-9267/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
-        LeetCode
-      </a>
-    </div>
-  </div>
-</footer>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+              LinkedIn
+            </a>
+            <a href="https://github.com/pandey-9267" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+              GitHub
+            </a>
+            <a href="https://leetcode.com/u/pandey-9267/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+              LeetCode
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
