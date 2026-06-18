@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: portfolio-backend
-    env: node
-    branch: main
-    root: portfolio-backend
-    buildCommand: npm install
-    startCommand: npm start
-    plan: free
