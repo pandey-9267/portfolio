@@ -72,7 +72,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/contact",
+        ""https://portfolio-3kt4.onrender.com/api/contact"",
         formData
       );
 
