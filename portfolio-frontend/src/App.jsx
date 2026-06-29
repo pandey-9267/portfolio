@@ -14,6 +14,7 @@ import taskmanagerImg from "./assets/task-manager.png";
 import profileImg from "./assets/profile.png";
 import quickcartImg from "./assets/quickcart.png";
 import RPSImg from "./assets/rock-paper-scissor.png";
+import calculatorImg from "./assets/calculator.png";
 
 import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -451,7 +452,7 @@ function App() {
               },
               {
                 img: quickcartImg,
-                tags: ["React", "Frontend"],
+                tags: ["HTML", "CSS", "APIcalls"],
                 title: "QuickCart Dashboard",
                 desc: "A modern e-commerce dashboard built with React.js, featuring a clean UI, responsive layout, and interactive data presentation.",
                 live: "https://quick-cart-dash-board.vercel.app/",
@@ -459,11 +460,19 @@ function App() {
               },
               {
                 img: RPSImg,
-                tags: ["React", "Frontend"],
+                tags: ["HTML", "CSS"],
                 title: "Rock Paper Scissors GAME",
                 desc: "A fun and interactive Rock Paper Scissors game built with React, focused on smooth gameplay and a polished user experience.",
                 live: "https://quick-cart-dash-board.vercel.app/",
                 github: "https://github.com/pandey-9267/Rock-Paper--Scissors--GAME-",
+              },
+              {
+                img: calculatorImg,
+                tags: ["HTML", "CSS"],
+                title: "Calculator App",
+                desc: "A simple yet functional calculator app built with React, featuring a clean UI and smooth user experience.",
+                live: "https://quick-cart-dash-board.vercel.app/",
+                github: "https://github.com/pandey-9267/Calculator",
               },
               {
                 img: netflixImg,
