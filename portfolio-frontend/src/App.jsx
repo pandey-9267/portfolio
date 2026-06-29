@@ -463,7 +463,7 @@ function App() {
                 tags: ["HTML", "CSS"],
                 title: "Rock Paper Scissors GAME",
                 desc: "A fun and interactive Rock Paper Scissors game built with React, focused on smooth gameplay and a polished user experience.",
-                live: "https://quick-cart-dash-board.vercel.app/",
+                live: "https://quick-rps.vercel.app/",
                 github: "https://github.com/pandey-9267/Rock-Paper--Scissors--GAME-",
               },
               {
@@ -471,7 +471,7 @@ function App() {
                 tags: ["HTML", "CSS"],
                 title: "Calculator App",
                 desc: "A simple yet functional calculator app built with React, featuring a clean UI and smooth user experience.",
-                live: "https://quick-cart-dash-board.vercel.app/",
+                live: "https://abhi-clac.vercel.app/",
                 github: "https://github.com/pandey-9267/Calculator",
               },
               {
