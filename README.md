@@ -4,9 +4,9 @@ A modern, responsive developer portfolio showcasing my projects, technical skill
 
 ## 🌐 Live Demo
 
-Frontend: https://your-vercel-url.vercel.app
+Frontend: https://abhi-portfolioo.vercel.app/
 
-Backend API: https://your-render-url.onrender.com
+Backend API: https://portfolio-3kt4.onrender.com/
 
 ---
 
