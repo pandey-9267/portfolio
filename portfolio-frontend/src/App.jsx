@@ -4,9 +4,12 @@ import "swiper/css";
 
 import "./App.css";
 
+// this help in to open the menu when it hiver and click
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+
+// import all the images from assets folder...
 
 import youtubeImg from "./assets/youtube.png";
 import netflixImg from "./assets/netflix.png";
@@ -29,12 +32,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-import {
-  SiMongodb,
-  SiExpress,
-  SiTailwindcss,
-  SiVercel,
-} from "react-icons/si";
+import { SiMongodb, SiExpress, SiTailwindcss, SiVercel } from "react-icons/si";
 
 import {
   UserCircle,
@@ -46,10 +44,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-
-
 function App() {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,6 +52,8 @@ function App() {
   });
 
   const [status, setStatus] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -71,7 +68,7 @@ function App() {
     try {
       const res = await axios.post(
         "https://portfolio-3kt4.onrender.com/api/contact",
-        formData
+        formData,
       );
 
       setStatus("Message sent successfully ✅");
@@ -89,6 +86,19 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const navItems = [
     { id: "home", label: "Home", Icon: Home },
@@ -119,30 +129,45 @@ function App() {
               </a>
             ))}
           </nav>
-          <div className="relative group shrink-0">
+          <div className="relative group shrink-0" ref={menuRef}>
+
             <button
               className="p-2 rounded-full hover:bg-gray-100 transition-all"
               aria-label="Account"
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  setIsMenuOpen(!isMenuOpen);
+                }
+              }}
             >
               <UserCircle className="text-primary size-8 hover:scale-110 transition-all" />
             </button>
 
-            <div className="absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div
+              className={`absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 transition-all duration-300 z-50
 
+  ${isMenuOpen
+                  ? "opacity-100 visible"
+                  : "opacity-0 invisible md:opacity-0 md:invisible"
+                }
+
+  md:group-hover:opacity-100
+  md:group-hover:visible`}
+            >
               <a
                 href="/Abhishek_Pandey_Resume.docx"
                 download
+                onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
                 Download Resume
               </a>
 
-
-
               <a
                 href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
                 LinkedIn
@@ -152,6 +177,7 @@ function App() {
                 href="https://leetcode.com/u/pandey-9267/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
                 LeetCode
@@ -161,11 +187,11 @@ function App() {
                 href="https://github.com/pandey-9267"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-b-xl"
               >
                 GitHub
               </a>
-
             </div>
           </div>
         </div>
@@ -194,10 +220,11 @@ function App() {
                 Turning ideas into fast, scalable MERN applications.
               </h2>
               <p className="text-lg text-on-surface-variant leading-relaxed">
-                MERN Stack Developer and B.Tech CSE student passionate about building modern web applications using React.js, Node.js, Express.js, and MongoDB.
-
-                Currently seeking internship opportunities to apply my skills, contribute to real-world projects, and grow as a software developer.
-
+                MERN Stack Developer and B.Tech CSE student passionate about
+                building modern web applications using React.js, Node.js,
+                Express.js, and MongoDB. Currently seeking internship
+                opportunities to apply my skills, contribute to real-world
+                projects, and grow as a software developer.
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
                 <a
@@ -228,30 +255,39 @@ function App() {
               />
               {/* edit the translate values for moving all side  */}
             </div>
-
           </div>
         </section>
-
         {/* About */}
         <section id="about" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-5 rounded-xl overflow-hidden shadow-md">
-              <img src={profileImg} alt="Designer working in a bright studio" className="w-full aspect-square object-cover" />
+              <img
+                src={profileImg}
+                alt="Designer working in a bright studio"
+                className="w-full aspect-square object-cover"
+              />
             </div>
             <div className="md:col-span-7 space-y-6">
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] leading-tight tracking-tight text-primary">
                 About Me
               </h2>
               <p className="text-lg text-on-surface-variant">
-                I'm a curious and passionate MERN Stack Developer currently pursuing B.Tech in Computer Science Engineering. I enjoy building responsive, user-friendly web applications using React.js, Node.js, Express.js, and MongoDB.
+                I'm a curious and passionate MERN Stack Developer currently
+                pursuing B.Tech in Computer Science Engineering. I enjoy
+                building responsive, user-friendly web applications using
+                React.js, Node.js, Express.js, and MongoDB.
               </p>
 
               <p className="text-lg text-on-surface-variant">
-                Currently working as a Full Stack Developer Intern at Talking Crooks, contributing to real-world web applications using React.js, Node.js, Express.js, and MongoDB.
+                Currently working as a Full Stack Developer Intern at Talking
+                Crooks, contributing to real-world web applications using
+                React.js, Node.js, Express.js, and MongoDB.
               </p>
 
               <p className="text-lg text-on-surface-variant">
-                I'm actively learning Data Structures & Algorithms and modern web technologies while seeking opportunities to grow as a software developer and contribute to impactful projects.
+                I'm actively learning Data Structures & Algorithms and modern
+                web technologies while seeking opportunities to grow as a
+                software developer and contribute to impactful projects.
               </p>
               <div className="flex flex-wrap gap-6 pt-4">
                 <div>
@@ -282,7 +318,6 @@ function App() {
             </div>
           </div>
         </section>
-
         {/* Tech Stack */}
         <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="text-center mb-12">
@@ -297,22 +332,30 @@ function App() {
 
           {/* Core Tech Stack */}
 
-
-
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-
-
             {[
               { icon: <FaHtml5 size={40} color="#E34F26" />, name: "HTML5" },
               { icon: <FaCss3Alt size={40} color="#1572B6" />, name: "CSS3" },
               { icon: <FaJs size={40} color="#F7DF1E" />, name: "JavaScript" },
               { icon: <FaReact size={40} color="#61DAFB" />, name: "React.js" },
               { icon: <FaNodeJs size={40} color="#339933" />, name: "Node.js" },
-              { icon: <SiExpress size={40} color="#000000" />, name: "Express.js" },
-              { icon: <SiMongodb size={40} color="#47A248" />, name: "MongoDB" },
-              { icon: <SiTailwindcss size={40} color="#06B6D4" />, name: "Tailwind CSS" },
+              {
+                icon: <SiExpress size={40} color="#000000" />,
+                name: "Express.js",
+              },
+              {
+                icon: <SiMongodb size={40} color="#47A248" />,
+                name: "MongoDB",
+              },
+              {
+                icon: <SiTailwindcss size={40} color="#06B6D4" />,
+                name: "Tailwind CSS",
+              },
             ].map((tech) => (
-              <div key={tech.name} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all">
+              <div
+                key={tech.name}
+                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
+              >
                 {tech.icon}
                 <span className="font-semibold text-primary">{tech.name}</span>
               </div>
@@ -331,16 +374,16 @@ function App() {
               { icon: <FaGithub size={40} color="#181717" />, name: "GitHub" },
               { icon: <SiVercel size={40} color="#000000" />, name: "Vercel" },
             ].map((tech) => (
-              <div key={tech.name} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all">
+              <div
+                key={tech.name}
+                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
+              >
                 {tech.icon}
                 <span className="font-semibold text-primary">{tech.name}</span>
               </div>
             ))}
           </div>
         </section>
-
-
-
         {/* Experience */}
         <section
           id="experience"
@@ -391,22 +434,36 @@ function App() {
             </div>
 
             <ul className="mt-6 space-y-3 text-gray-700">
-              <li>• Developed responsive web interfaces using React.js and Tailwind CSS.</li>
+              <li>
+                • Developed responsive web interfaces using React.js and
+                Tailwind CSS.
+              </li>
 
-              <li>• Built reusable frontend components for scalable applications.</li>
+              <li>
+                • Built reusable frontend components for scalable applications.
+              </li>
 
-              <li>• Collaborated with team members using Git and GitHub workflows.</li>
+              <li>
+                • Collaborated with team members using Git and GitHub workflows.
+              </li>
 
-              <li>• Improved website performance, UI consistency, and user experience.</li>
+              <li>
+                • Improved website performance, UI consistency, and user
+                experience.
+              </li>
 
-              <li>• Participated in real-world development, testing, and deployment processes.</li>
+              <li>
+                • Participated in real-world development, testing, and
+                deployment processes.
+              </li>
             </ul>
           </div>
         </section>
-
         {/* Projects */}
-
-        <section id="projects" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
+        <section
+          id="projects"
+          className="mt-[80px] px-6 max-w-[1280px] mx-auto"
+        >
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
               Projects
@@ -438,7 +495,7 @@ function App() {
 
               1024: {
                 slidesPerView: 3,
-              },    
+              },
             }}
           >
             {[
@@ -464,7 +521,8 @@ function App() {
                 title: "Rock Paper Scissors GAME",
                 desc: "A fun Rock Paper Scissors game built with HTML, CSS, and JavaScript for smooth gameplay and a polished user experience.",
                 live: "https://quick-rps.vercel.app/",
-                github: "https://github.com/pandey-9267/Rock-Paper--Scissors--GAME-",
+                github:
+                  "https://github.com/pandey-9267/Rock-Paper--Scissors--GAME-",
               },
               {
                 img: calculatorImg,
@@ -490,8 +548,6 @@ function App() {
                 live: "https://clone-y0utube.netlify.app/",
                 github: "https://github.com/pandey-9267/youtube-clone",
               },
-
-
             ].map((p) => (
               <SwiperSlide key={p.title} className="h-full">
                 <div className="group rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant hover:shadow-xl transition-all h-full flex flex-col">
@@ -523,7 +579,6 @@ function App() {
                       {p.desc}
                     </p>
 
-
                     <div className="flex gap-3 mt-auto pt-4">
                       <a
                         href={p.live}
@@ -549,11 +604,8 @@ function App() {
             ))}
           </Swiper>
         </section>
-
-
         {/* Coding Profiles */}
-        <section className="mt-[80px] px-6 max-w-[1280px] mx-auto"
-        >
+        <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
               Coding Profiles
@@ -565,7 +617,6 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
             <a
               href="https://github.com/pandey-9267"
               target="_blank"
@@ -610,17 +661,8 @@ function App() {
                 Professional profile, networking, and career updates.
               </p>
             </a>
-
           </div>
         </section>
-
-
-
-
-
-
-
-
         {/* Contact */}
         <section
           id="contact"
@@ -632,15 +674,18 @@ function App() {
                 Let's Connect
               </h2>
               <p className="text-lg text-on-primary-container">
-                I'm always looking for new opportunities to collaborate and learn. Whether you have a
-                question or just want to say hi, my inbox is always open.
+                I'm always looking for new opportunities to collaborate and
+                learn. Whether you have a question or just want to say hi, my
+                inbox is always open.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
                     <Mail className="text-on-secondary-container size-5" />
                   </div>
-                  <span className="text-base text-white">abhishekpandey9267@gmail.com</span>
+                  <span className="text-base text-white">
+                    abhishekpandey9267@gmail.com
+                  </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
@@ -684,9 +729,7 @@ function App() {
                   className="w-full bg-white border border-outline-variant rounded-xl p-3 text-on-surface focus:ring-2 focus:ring-secondary-container outline-none transition-all"
                 />
               </div>
-             
 
-             
               <div className="space-y-2">
                 <label>Message</label>
 
@@ -701,9 +744,7 @@ function App() {
               </div>
 
               {status && (
-                <p className="text-center text-white font-medium">
-                  {status}
-                </p>
+                <p className="text-center text-white font-medium">{status}</p>
               )}
 
               <button
@@ -715,7 +756,8 @@ function App() {
             </form>
           </div>
         </section>
-        `</main>
+        `
+      </main>
 
       {/* Footer */}
       <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
@@ -733,13 +775,28 @@ function App() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+            <a
+              href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
+            >
               LinkedIn
             </a>
-            <a href="https://github.com/pandey-9267" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+            <a
+              href="https://github.com/pandey-9267"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
+            >
               GitHub
             </a>
-            <a href="https://leetcode.com/u/pandey-9267/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all">
+            <a
+              href="https://leetcode.com/u/pandey-9267/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
+            >
               LeetCode
             </a>
           </div>
