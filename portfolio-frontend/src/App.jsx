@@ -13,6 +13,7 @@ import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
 import profileImg from "./assets/profile.png";
 import quickcartImg from "./assets/quickcart.png";
+import RPSImg from "./assets/rock-paper-scissor.png";
 
 import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -254,7 +255,7 @@ function App() {
               <div className="flex flex-wrap gap-6 pt-4">
                 <div>
                   <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                    5+
+                    10+
                   </p>
                   <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                     Projects Done
@@ -436,7 +437,7 @@ function App() {
 
               1024: {
                 slidesPerView: 3,
-              },
+              },    
             }}
           >
             {[
@@ -452,15 +453,23 @@ function App() {
                 img: quickcartImg,
                 tags: ["React", "Frontend"],
                 title: "QuickCart Dashboard",
-                desc: "A responsive e-commerce dashboard built using React.js with modern UI and real-time data visualization.",
+                desc: "A modern e-commerce dashboard built with React.js, featuring a clean UI, responsive layout, and interactive data presentation.",
                 live: "https://quick-cart-dash-board.vercel.app/",
                 github: "https://github.com/pandey-9267/quickcart-dashboard",
+              },
+              {
+                img: RPSImg,
+                tags: ["React", "Frontend"],
+                title: "Rock Paper Scissors GAME",
+                desc: "A fun and interactive Rock Paper Scissors game built with React, focused on smooth gameplay and a polished user experience.",
+                live: "https://quick-cart-dash-board.vercel.app/",
+                github: "https://github.com/pandey-9267/Rock-Paper--Scissors--GAME-",
               },
               {
                 img: netflixImg,
                 tags: ["HTML", "CSS"],
                 title: "Netflix Clone",
-                desc: "A responsive Netflix homepage clone built using pure HTML and CSS with modern UI styling and responsive layout.",
+                desc: "A visually appealing Netflix-inspired homepage clone crafted with HTML and CSS, emphasizing responsive design and UI styling.",
                 live: "https://clone-netfllx.vercel.app/",
                 github: "https://github.com/pandey-9267/Netflix-clone",
               },
@@ -468,7 +477,7 @@ function App() {
                 img: youtubeImg,
                 tags: ["HTML", "CSS"],
                 title: "YouTube Clone",
-                desc: "A responsive YouTube homepage clone built using pure HTML and CSS.",
+                desc: "A responsive YouTube-style homepage clone built using HTML and CSS, with a layout inspired by modern video streaming platforms.",
                 live: "https://clone-y0utube.netlify.app/",
                 github: "https://github.com/pandey-9267/youtube-clone",
               },
