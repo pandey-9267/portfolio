@@ -12,6 +12,7 @@ import youtubeImg from "./assets/youtube.png";
 import netflixImg from "./assets/netflix.png";
 import taskmanagerImg from "./assets/task-manager.png";
 import profileImg from "./assets/profile.png";
+import quickcartImg from "./assets/quickcart.png";
 
 import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -42,11 +43,6 @@ import {
   ArrowRight,
   MapPin,
 } from "lucide-react";
-
-
-
-const PROJECT1_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAGYoNP6EujoTyvy-jM7z5Z6GjhmN4eC8g-qxNVA6qNm-gd0AXE25eQ-irHT4fgkqx2mAqqUqhI36zfbbnGCfmXv8TvCtw2e71GVZlJdd4kBsBdgSGoNlXBf-DgNAxkemtLf6RWFAAABa_sRXtmxy-by1UR9a6PkXhVcKayqg2hOatIg8PlC8R5PTtHS7IrwtBVjqfO1QoKxOi0cQUYKJtr7eixunxUkbHvb2nec-hxjujsXGWm7PYCn1i3c1x0YRf47kN1BvejjODv";
 
 
 
@@ -453,12 +449,12 @@ function App() {
                 github: "https://github.com/pandey-9267/MERN-task-manager",
               },
               {
-                img: PROJECT1_IMG,
+                img: quickcartImg,
                 tags: ["React", "Frontend"],
-                title: "Weather App",
-                desc: "A responsive weather application built using React.js with modern UI and real-time weather updates.",
-                live: "https://your-weather-app.vercel.app/",
-                github: "https://github.com/pandey-9267/weather-app",
+                title: "QuickCart Dashboard",
+                desc: "A responsive e-commerce dashboard built using React.js with modern UI and real-time data visualization.",
+                live: "https://quick-cart-dash-board.vercel.app/",
+                github: "https://github.com/pandey-9267/quickcart-dashboard",
               },
               {
                 img: netflixImg,
