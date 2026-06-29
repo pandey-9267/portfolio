@@ -449,8 +449,8 @@ function App() {
                 tags: ["MERN", "Full Stack"],
                 title: "TaskFlow",
                 desc: "A full-stack task management web application built using MongoDB, Express.js, React.js, and Node.js with task creation, updating, and authentication features.",
-                live: "https://task-manager-app-abhishek.vercel.app/",
-                github: "https://github.com/pandey-9267/F_S_D/tree/main/DAY_6/MERN-task-manager",
+                live: "https://mern-task-manager-abhishek.vercel.app/",
+                github: "https://github.com/pandey-9267/MERN-task-manager",
               },
               {
                 img: PROJECT1_IMG,
