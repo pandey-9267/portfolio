@@ -2,9 +2,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import "./App.css";
+// css addded here 
 
-// this help in to open the menu when it hiver and click
+import "./App.css";
+import { motion } from "framer-motion";
+// this help in to open the menu when it hover and click
 
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
@@ -53,6 +55,8 @@ function App() {
 
   const [status, setStatus] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const menuRef = useRef(null);
 
   const handleChange = (e) => {
@@ -100,6 +104,38 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   const navItems = [
     { id: "home", label: "Home", Icon: Home },
     { id: "about", label: "About", Icon: User },
@@ -111,11 +147,27 @@ function App() {
   return (
     <div className="bg-surface text-on-surface min-h-screen font-[var(--font-body)]">
       {/* Top App Bar */}
-      <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-variant">
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/90 backdrop-blur-lg shadow-lg py-2 border-b border-gray-200"
+          : "bg-surface/80 backdrop-blur-md py-4 border-b border-surface-variant"
+          }`}
+      >
         <div className="flex justify-between items-center px-4 md:px-6 py-3 md:py-4 w-full max-w-[1280px] mx-auto gap-2">
-          <span className="font-[var(--font-display)] text-lg md:text-2xl font-bold tracking-tight text-primary shrink-0">
+          <motion.span
+            animate={{
+              scale: isScrolled ? 0.9 : 1,
+            }}
+            transition={{
+              duration: 0.3,
+            }}
+            className="font-[var(--font-display)] text-lg md:text-2xl font-bold tracking-tight text-primary shrink-0"
+          >
             PORTFOLIO
-          </span>
+          </motion.span>
           <nav className="flex gap-1 md:gap-6 items-center overflow-x-auto">
             {navItems.map(({ id, label, Icon }, i) => (
               <a
@@ -195,7 +247,7 @@ function App() {
             </div>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main className="pt-24 overflow-x-hidden">
         {/* Hero */}
@@ -208,25 +260,104 @@ function App() {
               <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
                 Available for Hire
               </p>
-              <h1 className="font-[var(--font-display)] font-extrabold text-[40px] sm:text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary">
+              <motion.h1
+                initial={{
+                  opacity: 0,
+                  y: 40,
+                  filter: "blur(10px)",
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
+                className="font-[var(--font-display)] font-extrabold text-[40px] sm:text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary"
+              >
                 Hi, I'm Abhishek Pandey.
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl md:text-2xl font-semibold text-secondary">
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                className="text-xl md:text-2xl font-semibold text-secondary"
+              >
                 MERN Stack Developer | React Developer
-              </p>
+              </motion.p>
 
-              <h2 className="font-[var(--font-display)] font-bold text-[28px] sm:text-[40px] md:text-[56px] leading-tight text-on-primary-container">
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                  y: 40,
+                  filter: "blur(8px)",
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
+                className="font-[var(--font-display)] font-bold text-[28px] sm:text-[40px] md:text-[56px] leading-tight text-on-primary-container"
+              >
                 Turning ideas into fast, scalable MERN applications.
-              </h2>
-              <p className="text-lg text-on-surface-variant leading-relaxed">
-                MERN Stack Developer and B.Tech CSE student passionate about
-                building modern web applications using React.js, Node.js,
-                Express.js, and MongoDB. Currently seeking internship
-                opportunities to apply my skills, contribute to real-world
-                projects, and grow as a software developer.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-6">
+              </motion.h2>
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 25,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.9,
+                  duration: 0.7,
+                  ease: "easeOut",
+                }}
+                className="text-lg text-on-surface-variant leading-relaxed"
+              >
+                MERN Stack Developer and B.Tech CSE student passionate about building modern web applications using React.js, Node.js, Express.js, and MongoDB.
+
+                <br />
+                <br />
+
+                Currently seeking internship opportunities to apply my skills, contribute to real-world projects, and grow as a software developer.
+              </motion.p>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 1.2,
+                  duration: 0.7,
+                  ease: "easeOut",
+                }}
+                className="flex flex-wrap gap-4 pt-6"
+              >
                 <a
                   href="#projects"
                   className="bg-primary text-on-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
@@ -234,32 +365,67 @@ function App() {
                   View My Work
                   <ArrowRight className="size-4" />
                 </a>
+
                 <a
                   href="#contact"
                   className="border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
                 >
                   Let's Connect
                 </a>
-              </div>
+              </motion.div>
             </div>
 
             {/* add photo here */}
 
             {/* for moving the photo a little bit up and right and adding a white border around it and also adding a shadow to it */}
 
-            <div className="flex justify-center md:justify-end">
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: 80,
+                scale: 0.8,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                scale: 1,
+              }}
+              transition={{
+                delay: 1.4,
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              className="flex justify-center md:justify-end"
+            >
               <img
                 src={profileImg}
                 alt="Abhishek Pandey"
                 className="w-[220px] sm:w-[260px] md:w-[300px] h-auto object-cover rounded-3xl shadow-xl border-4 border-white md:-translate-y-12 md:translate-x-10"
               />
-              {/* edit the translate values for moving all side  */}
-            </div>
+            </motion.div>
           </div>
         </section>
         {/* About */}
-        <section id="about" className="mt-[80px] px-6 max-w-[1280px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <motion.section
+          id="about"
+          className="mt-[80px] px-6 max-w-[1280px] mx-auto"
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+        >          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-5 rounded-xl overflow-hidden shadow-md">
               <img
                 src={profileImg}
@@ -317,7 +483,9 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
+
+
         {/* Tech Stack */}
         <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="text-center mb-12">
@@ -332,7 +500,13 @@ function App() {
 
           {/* Core Tech Stack */}
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {[
               { icon: <FaHtml5 size={40} color="#E34F26" />, name: "HTML5" },
               { icon: <FaCss3Alt size={40} color="#1572B6" />, name: "CSS3" },
@@ -352,15 +526,17 @@ function App() {
                 name: "Tailwind CSS",
               },
             ].map((tech) => (
-              <div
+              <motion.div
                 key={tech.name}
+                variants={itemVariants}
+                transition={{ duration: 0.5 }}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
               >
                 {tech.icon}
                 <span className="font-semibold text-primary">{tech.name}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Tools & Platforms */}
           <div className="mt-12 text-center mb-6">
@@ -368,26 +544,38 @@ function App() {
               Tools & Platforms
             </h3>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {[
               { icon: <FaGitAlt size={40} color="#F05032" />, name: "Git" },
               { icon: <FaGithub size={40} color="#181717" />, name: "GitHub" },
               { icon: <SiVercel size={40} color="#000000" />, name: "Vercel" },
             ].map((tech) => (
-              <div
+              <motion.div
                 key={tech.name}
+                variants={itemVariants}
+                transition={{ duration: 0.5 }}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex flex-col items-center gap-3 hover:-translate-y-2 transition-all"
               >
                 {tech.icon}
                 <span className="font-semibold text-primary">{tech.name}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
         {/* Experience */}
-        <section
+        <motion.section
           id="experience"
           className="mt-[80px] px-6 max-w-[1280px] mx-auto"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
@@ -398,7 +586,14 @@ function App() {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ y: -6 }}
+            className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all"
+          >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-primary">
@@ -457,12 +652,18 @@ function App() {
                 deployment processes.
               </li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
+
+
         {/* Projects */}
-        <section
+        <motion.section
           id="projects"
           className="mt-[80px] px-6 max-w-[1280px] mx-auto"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-primary">
@@ -550,7 +751,17 @@ function App() {
               },
             ].map((p) => (
               <SwiperSlide key={p.title} className="h-full">
-                <div className="group rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant hover:shadow-xl transition-all h-full flex flex-col">
+                <motion.div
+                  className="group rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest border border-outline-variant hover:shadow-xl transition-all h-full flex flex-col"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                  }}
+                >
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={p.img}
@@ -599,11 +810,13 @@ function App() {
                       </a>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
-        </section>
+        </motion.section>
+
+
         {/* Coding Profiles */}
         <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
           <div className="text-center mb-12">
@@ -616,12 +829,25 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.a
               href="https://github.com/pandey-9267"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+              variants={itemVariants}
+              transition={{ duration: 0.5 }}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg transition-all"
             >
               <div className="mb-3">
                 <FaGithub size={40} color="#181717" />
@@ -630,13 +856,20 @@ function App() {
               <p className="text-gray-600 mt-2">
                 10+ repositories, projects, and contributions.
               </p>
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="https://leetcode.com/u/pandey-9267/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+              variants={itemVariants}
+              transition={{ duration: 0.5 }}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg transition-all"
             >
               <div className="mb-3">
                 <SiLeetcode size={40} color="#FFA116" />
@@ -645,13 +878,20 @@ function App() {
               <p className="text-gray-600 mt-2">
                 Active learner focused on DSA and problem solving.
               </p>
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+              variants={itemVariants}
+              transition={{ duration: 0.5 }}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg transition-all"
             >
               <div className="mb-3">
                 <FaLinkedin size={40} color="#0A66C2" />
@@ -660,16 +900,29 @@ function App() {
               <p className="text-gray-600 mt-2">
                 Professional profile, networking, and career updates.
               </p>
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </section>
+
+
         {/* Contact */}
-        <section
+
+        <motion.section
           id="contact"
           className="mt-[80px] mx-4 md:mx-auto max-w-[1280px] py-8 bg-primary-container rounded-3xl text-on-primary"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
-            <div className="space-y-6">
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
               <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] tracking-tight text-white">
                 Let's Connect
               </h2>
@@ -694,11 +947,15 @@ function App() {
                   <span className="text-base text-white">New Delhi, India</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <form
+            <motion.form
               className="glass-card p-8 rounded-2xl space-y-4 shadow-xl"
               onSubmit={handleSubmit}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
               <div className="space-y-2">
                 <label className="text-sm font-semibold uppercase tracking-widest text-on-tertiary-container">
@@ -753,14 +1010,21 @@ function App() {
               >
                 Send Message
               </button>
-            </form>
+            </motion.form>
           </div>
-        </section>
-        `
+        </motion.section>
+
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest">
+
+      <motion.footer
+        className="w-full py-8 mt-[120px] border-t border-surface-variant bg-surface-container-lowest"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="font-[var(--font-display)] font-semibold text-2xl text-primary">
@@ -774,34 +1038,79 @@ function App() {
             </span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
+          <motion.div
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <motion.a
               href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{
+                y: -2,
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 15,
+              }}
               className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
             >
               LinkedIn
-            </a>
-            <a
+            </motion.a>
+
+            <motion.a
               href="https://github.com/pandey-9267"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{
+                y: -2,
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 15,
+              }}
               className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
             >
               GitHub
-            </a>
-            <a
+            </motion.a>
+
+            <motion.a
               href="https://leetcode.com/u/pandey-9267/"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{
+                y: -2,
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 15,
+              }}
               className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-all"
             >
               LeetCode
-            </a>
-          </div>
+            </motion.a>
+
+          </motion.div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 }
