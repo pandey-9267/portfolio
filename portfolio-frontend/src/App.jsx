@@ -13,13 +13,13 @@ import axios from "axios";
 
 // import all the images from assets folder...
 
-import youtubeImg from "./assets/youtube.png";
-import netflixImg from "./assets/netflix.png";
-import taskmanagerImg from "./assets/task-manager.png";
+import youtubeImg from "./assets/youtube.webp";
+import netflixImg from "./assets/netflix.webp";
+import taskmanagerImg from "./assets/task-manager.webp";
 import profileImg from "./assets/profile.png";
-import quickcartImg from "./assets/quickcart.png";
-import RPSImg from "./assets/rock-paper-scissor.png";
-import calculatorImg from "./assets/calculator.png";
+import quickcartImg from "./assets/quickcart.webp";
+import RPSImg from "./assets/rock-paper-scissor.webp";
+import calculatorImg from "./assets/calculator.webp";
 
 import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -400,6 +400,8 @@ function App() {
               <img
                 src={profileImg}
                 alt="Abhishek Pandey"
+                 fetchPriority="high"
+  decoding="async"
                 className="w-[220px] sm:w-[260px] md:w-[300px] h-auto object-cover rounded-3xl shadow-xl border-4 border-white md:-translate-y-12 md:translate-x-10"
               />
             </motion.div>
@@ -431,6 +433,8 @@ function App() {
                 src={profileImg}
                 alt="Designer working in a bright studio"
                 className="w-full aspect-square object-cover"
+                loading="lazy"
+decoding="async"
               />
             </div>
             <div className="md:col-span-7 space-y-6">
@@ -766,6 +770,8 @@ function App() {
                     <img
                       src={p.img}
                       alt={p.title}
+                      loading="lazy"
+decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
