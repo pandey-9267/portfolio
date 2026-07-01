@@ -251,10 +251,10 @@ function App() {
 
       <main className="pt-24 overflow-x-hidden">
         {/* Hero */}
-        <section
-          id="home"
-          className="px-6 max-w-[1280px] mx-auto min-h-screen flex flex-col justify-center items-start gap-8 py-8"
-        >
+      <section
+  id="home"
+  className="px-6 max-w-[1280px] mx-auto min-h-[90vh] md:min-h-screen flex flex-col justify-start md:justify-center items-start gap-8 pt-24 md:pt-8"
+>
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
             <div className="space-y-4 max-w-2xl">
               <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
