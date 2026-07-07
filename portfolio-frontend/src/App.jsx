@@ -251,10 +251,10 @@ function App() {
 
       <main className="pt-24 overflow-x-hidden">
         {/* Hero */}
-  <section
-  id="home"
-  className="px-6 max-w-[1280px] mx-auto min-h-[80vh] md:min-h-screen flex flex-col justify-center items-start gap-8 py-8"
->
+        <section
+          id="home"
+          className="px-6 max-w-[1280px] mx-auto min-h-[80vh] md:min-h-screen flex flex-col justify-center items-start gap-8 py-8"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
             <div className="space-y-4 max-w-2xl">
               <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
@@ -400,13 +400,15 @@ function App() {
               <img
                 src={profileImg}
                 alt="Abhishek Pandey"
-                 fetchPriority="high"
-  decoding="async"
+                fetchPriority="high"
+                decoding="async"
                 className="w-[220px] sm:w-[260px] md:w-[300px] h-auto object-cover rounded-3xl shadow-xl border-4 border-white md:-translate-y-12 md:translate-x-10"
               />
             </motion.div>
           </div>
         </section>
+
+
         {/* About */}
         <motion.section
           id="about"
@@ -431,10 +433,10 @@ function App() {
             <div className="md:col-span-5 rounded-xl overflow-hidden shadow-md">
               <img
                 src={profileImg}
-                alt="Designer working in a bright studio"
-                className="w-full aspect-square object-cover"
+                alt="Abhishek Pandey"
                 loading="lazy"
-decoding="async"
+                decoding="async"
+                className="w-full aspect-square object-cover"
               />
             </div>
             <div className="md:col-span-7 space-y-6">
@@ -771,7 +773,7 @@ decoding="async"
                       src={p.img}
                       alt={p.title}
                       loading="lazy"
-decoding="async"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
