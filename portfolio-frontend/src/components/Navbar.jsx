@@ -84,7 +84,7 @@ function Navbar() {
   md:group-hover:visible`}
             >
               <a
-                href="/Abhishek_Pandey_Resume.docx"
+                href="/Abhishek Pandey Resume.docx"
                 download
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
