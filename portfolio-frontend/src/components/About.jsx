@@ -79,7 +79,7 @@ function About() {
 
             <div>
               <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                12+
+                13+
               </p>
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 GitHub Repos
