@@ -1,8 +1,37 @@
-.swiper-slide {
-  height: auto;
+/* ===========================
+   Infinite Marquee
+=========================== */
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 35s linear infinite;
+}
 
-/* the scrollbar-hide CSS */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+}
+
+@keyframes scroll {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}

@@ -52,7 +52,7 @@ function Hero() {
               }}
               className="text-xl md:text-2xl font-semibold text-secondary"
             >
-              MERN Stack Developer | React Developer
+              Full Stack Developer | Java & DSA
             </motion.p>
 
             <motion.h2
@@ -89,14 +89,13 @@ function Hero() {
                 duration: 0.7,
                 ease: "easeOut",
               }}
-              className="text-lg text-on-surface-variant leading-relaxed"
+             className="max-w-xl text-lg leading-relaxed text-on-surface-variant"
             >
-              MERN Stack Developer and B.Tech CSE student passionate about building modern web applications using React.js, Node.js, Express.js, and MongoDB.
+            I build fast, scalable, and user-friendly web applications using the MERN Stack while strengthening my problem-solving skills through Java and Data Structures & Algorithms.
 
               <br />
-              <br />
 
-              Currently seeking internship opportunities to apply my skills, contribute to real-world projects, and grow as a software developer.
+        Currently seeking internship opportunities to contribute, learn, and grow as a Software Engineer.
             </motion.p>
             <motion.div
               initial={{
