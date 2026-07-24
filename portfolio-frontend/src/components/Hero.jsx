@@ -11,7 +11,7 @@ function Hero() {
         id="home"
         className="px-6 max-w-[1280px] mx-auto min-h-[calc(100vh-112px)] flex flex-col justify-center items-start gap-8 py-8"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-2 w-full">
           <div className="space-y-4 max-w-2xl">
             <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
               Available for Hire
@@ -89,13 +89,8 @@ function Hero() {
                 duration: 0.7,
                 ease: "easeOut",
               }}
-             className="max-w-xl text-lg leading-relaxed text-on-surface-variant"
+              className="max-w-xl text-lg leading-relaxed text-on-surface-variant"
             >
-            I build fast, scalable, and user-friendly web applications using the MERN Stack while strengthening my problem-solving skills through Java and Data Structures & Algorithms.
-
-              <br />
-
-        Currently seeking internship opportunities to contribute, learn, and grow as a Software Engineer.
             </motion.p>
             <motion.div
               initial={{
@@ -138,27 +133,62 @@ function Hero() {
             initial={{
               opacity: 0,
               x: 80,
-              scale: 0.8,
+              scale: 0.9,
             }}
             animate={{
               opacity: 1,
               x: 0,
               scale: 1,
+              y: [0, -6, 0],
             }}
             transition={{
-              delay: 1.4,
-              duration: 0.8,
-              ease: "easeOut",
+              opacity: {
+                delay: 1.2,
+                duration: 0.8,
+              },
+              x: {
+                delay: 1.2,
+                duration: 0.8,
+              },
+              scale: {
+                delay: 1.2,
+                duration: 0.8,
+              },
+              y: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
             }}
             className="flex justify-center md:justify-end"
           >
-            <img
-              src={profileImg}
-              alt="Abhishek Pandey"
-              fetchPriority="high"
-              decoding="async"
-              className="w-[220px] sm:w-[260px] md:w-[300px] h-auto object-cover rounded-3xl shadow-xl border-4 border-white md:-translate-y-12 md:translate-x-10"
-            />
+            <div className="relative md:-translate-y-6 md:translate-x-4">
+
+              {/* Background Card */}
+              <div className="absolute inset-0 rounded-[36px] bg-gradient-to-br from-blue-50 to-transparent rotate-2"></div>
+
+              {/* Profile Card */}
+              <div className="relative bg-white p-3 rounded-[36px] border border-gray-200 shadow-[0_35px_80px_rgba(0,0,0,0.12)]">
+
+                {/* Badge */}
+                <div className="absolute -top-4 -right-4 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-lg flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+
+                  <span className="text-xs font-semibold whitespace-nowrap">
+                    Available for Internship
+                  </span>
+                </div>
+
+                <img
+                  src={profileImg}
+                  alt="Abhishek Pandey"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-[280px] sm:w-[340px] md:w-[350px] rounded-[28px] object-cover transition-transform duration-500 hover:scale-[1.02]"
+                />
+              </div>
+
+            </div>
           </motion.div>
         </div>
       </section>
