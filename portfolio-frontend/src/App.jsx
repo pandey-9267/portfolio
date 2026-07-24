@@ -1,6 +1,9 @@
 // Global CSS
 import "./App.css";
 
+// Hook
+import useProfileStats from "./hooks/useProfileStats";
+
 // Layout Components
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -13,6 +16,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
+  const profileStats = useProfileStats();
+
   return (
     <>
       {/* Navigation Bar */}
@@ -21,11 +26,11 @@ function App() {
       {/* Main Content */}
       <main className="pt-28 overflow-x-hidden">
         <Hero />
-        <About />
+        <About profileStats={profileStats} />
         <TechStack />
         <Experience />
         <Projects />
-        <CodingProfiles />
+        <CodingProfiles profileStats={profileStats} />
         <Contact />
         <Footer />
       </main>

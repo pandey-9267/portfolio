@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import codingProfiles from "../data/codingProfiles";
 
 import {
@@ -7,7 +6,14 @@ import {
   itemVariants,
 } from "../utils/animations";
 
-function CodingProfiles() {
+function CodingProfiles({ profileStats }) {
+  const {
+    github,
+    leetcode,
+    loading,
+    error,
+  } = profileStats;
+
   return (
     <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
       <div className="text-center mb-12">
@@ -56,7 +62,19 @@ function CodingProfiles() {
               </h3>
 
               <p className="text-gray-600 mt-2">
-                {profile.description}
+                {profile.title === "GitHub"
+                  ? loading
+                    ? "Loading..."
+                    : error
+                    ? "Unable to load GitHub stats."
+                    : `${github?.repos ?? 0}+ public repositories • ${github?.followers ?? 0} followers`
+                  : profile.title === "LeetCode"
+                  ? loading
+                    ? "Loading..."
+                    : error
+                    ? "Unable to load LeetCode stats."
+                    : `${leetcode?.totalSolved ?? 0}+ problems solved`
+                  : profile.description}
               </p>
             </motion.a>
           );

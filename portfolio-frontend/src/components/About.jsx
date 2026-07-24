@@ -1,17 +1,14 @@
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile.png";
 
-import useGithub from "../hooks/useGithub";
-import useLeetcode from "../hooks/useLeetcode";
-
-function About() {
-  const { githubData, loading, error } = useGithub();
-
+function About({ profileStats }) {
   const {
-    leetcodeData,
-    loading: leetcodeLoading,
-    error: leetcodeError,
-  } = useLeetcode();
+    github,
+    leetcode,
+    loading,
+    error,
+  } = profileStats;
+
   return (
     <motion.section
       id="about"
@@ -50,19 +47,22 @@ function About() {
           </h2>
 
           <p className="text-lg text-on-surface-variant">
-            I'm a Full Stack Developer and B.Tech Computer Science student passionate about building modern, scalable web applications using the MERN Stack. I also strengthen my problem-solving skills through Java and Data Structures & Algorithms.
-
-
+            I'm a Full Stack Developer and B.Tech Computer Science student
+            passionate about building modern, scalable web applications using
+            the MERN Stack. I also strengthen my problem-solving skills through
+            Java and Data Structures & Algorithms.
           </p>
 
           <p className="text-lg text-on-surface-variant">
-            Currently, I'm working as a Full Stack Developer Intern at Talking Crooks, where I contribute to real-world web applications using React.js, Node.js, Express.js, and MongoDB.
-
+            Currently, I'm working as a Full Stack Developer Intern at Talking
+            Crooks, where I contribute to real-world web applications using
+            React.js, Node.js, Express.js, and MongoDB.
           </p>
 
           <p className="text-lg text-on-surface-variant">
-
-            I'm continuously learning new technologies, solving DSA problems in Java, and looking for opportunities to build impactful software while growing as a Software Engineer.
+            I'm continuously learning new technologies, solving DSA problems in
+            Java, and looking for opportunities to build impactful software
+            while growing as a Software Engineer.
           </p>
 
           <div className="flex flex-wrap gap-6 pt-4">
@@ -86,7 +86,11 @@ function About() {
 
             <div>
               <h3 className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                {error ? "--" : loading ? "..." : `${githubData.repos}+`}
+                {loading
+                  ? "..."
+                  : error
+                  ? "--"
+                  : `${github?.repos ?? 0}+`}
               </h3>
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 GitHub Repos
@@ -95,11 +99,11 @@ function About() {
 
             <div>
               <h3 className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                {leetcodeError
+                {loading
+                  ? "..."
+                  : error
                   ? "--"
-                  : leetcodeLoading
-                    ? "..."
-                    : `${leetcodeData.totalSolved}+`}
+                  : `${leetcode?.totalSolved ?? 0}+`}
               </h3>
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 DSA Problems Solved
