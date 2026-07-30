@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import profileImg from "../assets/profile.png";
+import heroContent from "../data/heroContent";
 
 function Hero() {
+  const { badge, greeting, role, headline, imageAlt, availabilityBadge, ctas } = heroContent;
+
   return (
     <>
-      {/* Hero */}
       <section
         id="home"
         className="px-6 max-w-[1280px] mx-auto min-h-[calc(100vh-112px)] flex flex-col justify-center items-start gap-8 py-8"
@@ -14,7 +16,7 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-2 w-full">
           <div className="space-y-4 max-w-2xl">
             <p className="text-sm font-semibold text-secondary uppercase tracking-widest">
-              Available for Hire
+              {badge}
             </p>
             <motion.h1
               initial={{
@@ -33,7 +35,7 @@ function Hero() {
               }}
               className="font-[var(--font-display)] font-extrabold text-[40px] sm:text-[52px] md:text-[64px] leading-[1.1] tracking-tight text-primary"
             >
-              Hi, I'm Abhishek Pandey.
+              {greeting}
             </motion.h1>
 
             <motion.p
@@ -52,7 +54,7 @@ function Hero() {
               }}
               className="text-xl md:text-2xl font-semibold text-secondary"
             >
-              Full Stack Developer | Java & DSA
+              {role}
             </motion.p>
 
             <motion.h2
@@ -73,25 +75,8 @@ function Hero() {
               }}
               className="font-[var(--font-display)] font-bold text-[28px] sm:text-[40px] md:text-[56px] leading-tight text-on-primary-container"
             >
-              Turning ideas into fast, scalable MERN applications.
+              {headline}
             </motion.h2>
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.9,
-                duration: 0.7,
-                ease: "easeOut",
-              }}
-              className="max-w-xl text-lg leading-relaxed text-on-surface-variant"
-            >
-            </motion.p>
             <motion.div
               initial={{
                 opacity: 0,
@@ -108,26 +93,22 @@ function Hero() {
               }}
               className="flex flex-wrap gap-4 pt-6"
             >
-              <a
-                href="#projects"
-                className="bg-primary text-on-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-              >
-                View My Work
-                <ArrowRight className="size-4" />
-              </a>
-
-              <a
-                href="#contact"
-                className="border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
-              >
-                Let's Connect
-              </a>
+              {ctas.map((cta) => (
+                <a
+                  key={cta.label}
+                  href={cta.href}
+                  className={
+                    cta.variant === "primary"
+                      ? "bg-primary text-on-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                      : "border-2 border-primary text-primary px-8 py-4 rounded-xl text-sm font-semibold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all"
+                  }
+                >
+                  {cta.label}
+                  {cta.variant === "primary" && <ArrowRight className="size-4" />}
+                </a>
+              ))}
             </motion.div>
           </div>
-
-          {/* add photo here */}
-
-          {/* for moving the photo a little bit up and right and adding a white border around it and also adding a shadow to it */}
 
           <motion.div
             initial={{
@@ -161,7 +142,7 @@ function Hero() {
               },
             }}
             className="flex justify-center md:justify-end"
-          >
+           >
             <div className="relative md:-translate-y-6 md:translate-x-4">
 
               {/* Background Card */}
@@ -175,13 +156,13 @@ function Hero() {
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
 
                   <span className="text-xs font-semibold whitespace-nowrap">
-                    Available for Internship
+                    {availabilityBadge}
                   </span>
                 </div>
 
                 <img
                   src={profileImg}
-                  alt="Abhishek Pandey"
+                  alt={imageAlt}
                   fetchPriority="high"
                   decoding="async"
                   className="w-[280px] sm:w-[340px] md:w-[350px] rounded-[28px] object-cover transition-transform duration-500 hover:scale-[1.02]"

@@ -11,8 +11,6 @@ export async function getGithubStats() {
 
   const data = await response.json();
 
-  console.log(data); // 👈 Add this temporarily
-
   return {
     repos: data.public_repos,
     followers: data.followers,
