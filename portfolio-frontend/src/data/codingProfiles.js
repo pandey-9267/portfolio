@@ -20,7 +20,7 @@ const codingProfiles = [
     icon: FaLinkedin,
     color: "#0A66C2",
     title: "LinkedIn",
-    description: "Professional profile, networking, and career updates.",
+    description: "Professional Profile /n Experience • Skills • Career Updates",
     link: "https://www.linkedin.com/in/abhishek-pandey-03a4b4304/",
   },
 ];
