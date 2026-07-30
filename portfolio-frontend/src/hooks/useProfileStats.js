@@ -12,16 +12,25 @@ function useProfileStats() {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const [githubData, leetcodeData] = await Promise.all([
+        const results = await Promise.allSettled([
           getGithubStats(),
           getLeetcodeStats(),
         ]);
 
-        setGithub(githubData);
-        setLeetcode(leetcodeData);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load profile stats.");
+        if (results[0].status === "fulfilled") {
+          setGithub(results[0].value);
+        }
+
+        if (results[1].status === "fulfilled") {
+          setLeetcode(results[1].value);
+        }
+
+        if (
+          results[0].status === "rejected" &&
+          results[1].status === "rejected"
+        ) {
+          setError("Failed to load profile stats.");
+        }
       } finally {
         setLoading(false);
       }
