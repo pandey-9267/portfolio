@@ -4,7 +4,6 @@ import profileImg from "../assets/profile.png";
 function About({ profileStats }) {
   const {
     github,
-    leetcode,
     loading,
     error,
   } = profileStats;
@@ -89,8 +88,8 @@ function About({ profileStats }) {
                 {loading
                   ? "..."
                   : error
-                  ? "--"
-                  : `${github?.repos ?? 0}+`}
+                    ? "--"
+                    : `${github?.repos ?? 0}+`}
               </h3>
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 GitHub Repos
@@ -99,12 +98,9 @@ function About({ profileStats }) {
 
             <div>
               <h3 className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                {loading
-                  ? "..."
-                  : error
-                  ? "--"
-                  : `${leetcode?.totalSolved ?? 0}+`}
+                2+
               </h3>
+
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 DSA Problems Solved
               </p>

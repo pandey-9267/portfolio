@@ -9,15 +9,18 @@ import {
 function CodingProfiles({ profileStats }) {
   const {
     github,
-    leetcode,
     loading,
     error,
   } = profileStats;
 
   return (
-    <section className="mt-[80px] px-6 max-w-[1280px] mx-auto">
+    <section
+      id="coding-profiles"
+      className="mt-[100px] px-6 max-w-[1280px] mx-auto"
+    >
+      {/* Section Heading */}
       <div className="text-center mb-12">
-        <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] text-primary">
+        <h2 className="font-[var(--font-display)] font-bold text-[32px] md:text-[40px] leading-tight tracking-tight text-primary">
           Coding Profiles
         </h2>
 
@@ -26,6 +29,7 @@ function CodingProfiles({ profileStats }) {
         </p>
       </div>
 
+      {/* Profile Cards */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
         variants={containerVariants}
@@ -53,27 +57,26 @@ function CodingProfiles({ profileStats }) {
               }}
               className="bg-white p-6 rounded-2xl border shadow-sm hover:shadow-lg transition-all"
             >
+              {/* Icon */}
               <div className="mb-3">
                 <Icon size={40} color={profile.color} />
               </div>
 
+              {/* Title */}
               <h3 className="text-xl font-bold">
                 {profile.title}
               </h3>
 
+              {/* Description */}
               <p className="text-gray-600 mt-2">
                 {profile.title === "GitHub"
                   ? loading
                     ? "Loading..."
                     : error
                     ? "Unable to load GitHub stats."
-                    : `${github?.repos ?? 0}+ public repositories • ${github?.followers ?? 0} followers`
-                  : profile.title === "LeetCode"
-                  ? loading
-                    ? "Loading..."
-                    : error
-                    ? "Unable to load LeetCode stats."
-                    : `${leetcode?.totalSolved ?? 0}+ problems solved`
+                    : `${github?.repos ?? 0}+ public repositories • ${
+                        github?.followers ?? 0
+                      } followers`
                   : profile.description}
               </p>
             </motion.a>
