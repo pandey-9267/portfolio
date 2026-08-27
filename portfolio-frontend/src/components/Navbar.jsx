@@ -8,32 +8,31 @@ import { UserCircle } from "lucide-react";
 import navItems from "../data/navItems";
 
 function Navbar() {
- const [isMenuOpen, setIsMenuOpen] = useState(false);
- const isScrolled = useScroll();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isScrolled = useScroll();
 
   const menuRef = useRef(null);
 
   useClickOutside(menuRef, () => {
-  setIsMenuOpen(false);
-});
+    setIsMenuOpen(false);
+  });
 
-
-
-
-
-    return (
+  return (
     <>
-     {/* Top App Bar */}
+      {/* Top App Bar */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/90 backdrop-blur-lg shadow-lg py-2 border-b border-gray-200"
-          : "bg-surface/80 backdrop-blur-md py-4 border-b border-surface-variant"
-          }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/90 backdrop-blur-lg shadow-lg py-2 border-b border-gray-200"
+            : "bg-surface/80 backdrop-blur-md py-4 border-b border-surface-variant"
+        }`}
       >
         <div className="flex justify-between items-center px-4 md:px-6 py-3 md:py-4 w-full max-w-[1280px] mx-auto gap-2">
+          
+          {/* Logo */}
           <motion.span
             animate={{
               scale: isScrolled ? 0.9 : 1,
@@ -45,21 +44,27 @@ function Navbar() {
           >
             PORTFOLIO
           </motion.span>
+
+          {/* Navigation */}
           <nav className="flex gap-1 md:gap-6 items-center overflow-x-auto">
             {navItems.map(({ id, label, Icon }, i) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold text-xs md:text-sm tracking-widest uppercase hover:text-secondary transition-colors ${i === 0 ? "text-primary font-bold" : "text-on-surface-variant"
-                  }`}
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold text-xs md:text-sm tracking-widest uppercase hover:text-secondary transition-colors ${
+                  i === 0
+                    ? "text-primary font-bold"
+                    : "text-on-surface-variant"
+                }`}
               >
                 <Icon className="size-4" />
                 <span className="hidden md:inline">{label}</span>
               </a>
             ))}
           </nav>
-          <div className="relative group shrink-0" ref={menuRef}>
 
+          {/* Profile Menu */}
+          <div className="relative group shrink-0" ref={menuRef}>
             <button
               className="p-2 rounded-full hover:bg-gray-100 transition-all"
               aria-label="Account"
@@ -72,28 +77,27 @@ function Navbar() {
               <UserCircle className="text-primary size-8 hover:scale-110 transition-all" />
             </button>
 
+            {/* Dropdown */}
             <div
-              className={`absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 transition-all duration-300 z-50
-
-  ${isMenuOpen
+              className={`absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 transition-all duration-300 z-50 ${
+                isMenuOpen
                   ? "opacity-100 visible"
                   : "opacity-0 invisible md:opacity-0 md:invisible"
-                }
-
-  md:group-hover:opacity-100
-  md:group-hover:visible`}
+              } md:group-hover:opacity-100 md:group-hover:visible`}
             >
+              {/* Resume */}
               <a
-                href="/Abhishek Pandey Resume.docx"
-                download
+                href="/Abhishek%20Pandey%20Resume.pdf"
+                download="Abhishek Pandey Resume.pdf"
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
                 Download Resume
               </a>
 
+              {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304"
+                href="https://www.linkedin.com/in/abhishek-pandey-03a4b4304/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
@@ -102,6 +106,7 @@ function Navbar() {
                 LinkedIn
               </a>
 
+              {/* LeetCode */}
               <a
                 href="https://leetcode.com/u/pandey-9267/"
                 target="_blank"
@@ -112,6 +117,7 @@ function Navbar() {
                 LeetCode
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/pandey-9267"
                 target="_blank"
