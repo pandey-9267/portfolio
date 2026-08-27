@@ -24,14 +24,13 @@ function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
             ? "bg-white/90 backdrop-blur-lg shadow-lg py-2 border-b border-gray-200"
             : "bg-surface/80 backdrop-blur-md py-4 border-b border-surface-variant"
-        }`}
+          }`}
       >
         <div className="flex justify-between items-center px-4 md:px-6 py-3 md:py-4 w-full max-w-[1280px] mx-auto gap-2">
-          
+
           {/* Logo */}
           <motion.span
             animate={{
@@ -51,11 +50,10 @@ function Navbar() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold text-xs md:text-sm tracking-widest uppercase hover:text-secondary transition-colors ${
-                  i === 0
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold text-xs md:text-sm tracking-widest uppercase hover:text-secondary transition-colors ${i === 0
                     ? "text-primary font-bold"
                     : "text-on-surface-variant"
-                }`}
+                  }`}
               >
                 <Icon className="size-4" />
                 <span className="hidden md:inline">{label}</span>
@@ -79,16 +77,15 @@ function Navbar() {
 
             {/* Dropdown */}
             <div
-              className={`absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 transition-all duration-300 z-50 ${
-                isMenuOpen
+              className={`absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl border border-gray-200 transition-all duration-300 z-50 ${isMenuOpen
                   ? "opacity-100 visible"
                   : "opacity-0 invisible md:opacity-0 md:invisible"
-              } md:group-hover:opacity-100 md:group-hover:visible`}
+                } md:group-hover:opacity-100 md:group-hover:visible`}
             >
               {/* Resume */}
               <a
-                href="/Abhishek%20Pandey%20Resume.pdf"
-                download="Abhishek Pandey Resume.pdf"
+                href="/Abhishek_Pandey_Resume.docx"
+                download="Abhishek_Pandey_Resume.docx"
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
