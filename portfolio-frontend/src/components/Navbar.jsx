@@ -84,8 +84,8 @@ function Navbar() {
             >
               {/* Resume */}
               <a
-                href="/Abhishek_Pandey_Resume.docx"
-                download="Abhishek_Pandey_Resume.docx"
+                href="/Abhishek_Pandey_Resume.pdf"
+                download="Abhishek_Pandey_Resume.pdf"
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium hover:bg-gray-100"
               >
