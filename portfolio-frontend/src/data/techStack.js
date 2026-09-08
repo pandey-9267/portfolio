@@ -12,6 +12,7 @@ import {
   FaTools,
   FaLayerGroup,
   FaDatabase,
+  FaPython,
 } from "react-icons/fa";
 
 import {
@@ -30,6 +31,11 @@ export const techCategories = [
         icon: FaJava,
         color: "#007396",
         name: "Java",
+      },
+      {
+        icon: FaPython,
+        color: "#007396",
+        name: "Python",
       },
       {
         icon: FaJs,
