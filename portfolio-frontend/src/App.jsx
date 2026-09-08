@@ -1,8 +1,13 @@
+import { useState, useEffect } from "react";
+
 // Global CSS
 import "./App.css";
 
 // Hook
 import useProfileStats from "./hooks/useProfileStats";
+
+// Loader Component
+import Loader from "./Loader";
 
 // Layout Components
 import Navbar from "./components/Navbar";
@@ -16,7 +21,31 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const profileStats = useProfileStats();
+
+  useEffect(() => {
+    // Simulate loading time (3 seconds)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "#0a0a0a"
+      }}>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>
