@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix portfolio-frontend\" \"npm run dev --prefix portfolio_backend\"",
+    "dev:frontend": "npm run dev --prefix portfolio-frontend",
+    "dev:backend": "npm run dev --prefix portfolio_backend",
+    "install:all": "npm install --prefix portfolio-frontend && npm install --prefix portfolio_backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
