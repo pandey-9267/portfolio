@@ -11,7 +11,7 @@ function Hero() {
     <>
       <section
         id="home"
-        className="px-6 max-w-[1280px] mx-auto min-h-[calc(100vh-112px)] flex flex-col justify-center items-start gap-8 py-8"
+        className="px-6 max-w-[1280px] mx-auto flex flex-col justify-center items-start gap-8 py-8"
       >
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-2 w-full">
           <div className="space-y-4 max-w-2xl">
@@ -178,4 +178,3 @@ function Hero() {
 }
 
 export default Hero;
-

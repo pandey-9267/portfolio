@@ -28,7 +28,7 @@ function Projects() {
   {projects.map((p) => (
     <div
       key={p.title}
-   className="project-card group w-[360px] mx-4 flex-shrink-0 rounded-2xl overflow-hidden bg-surface-container-lowest border border-outline-variant shadow-md transition-all duration-500 hover:-translate-y-4 hover:scale-[1.03] hover:rotate-[0.5deg] hover:border-blue-500 hover:shadow-[0_25px_60px_rgba(37,99,235,0.18)]"
+   className="project-card group w-[360px] mx-4 flex-shrink-0 rounded-2xl overflow-hidden bg-surface-container-lowest border border-outline-variant shadow-md transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-3 hover:scale-[1.02] hover:border-blue-500 hover:shadow-[0_20px_40px_rgba(37,99,235,0.16)]"
     >
       <div className="aspect-video overflow-hidden">
         <img
@@ -36,7 +36,7 @@ function Projects() {
           alt={p.title}
           loading="lazy"
           decoding="async"
-        className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-105"
+        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
 

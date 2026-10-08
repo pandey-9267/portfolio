@@ -53,7 +53,7 @@ function App() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="pt-28 overflow-x-hidden">
+      <main className="pt-28">
         <Hero />
         <About profileStats={profileStats} />
         <TechStack />

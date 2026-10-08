@@ -6,12 +6,14 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  contain: layout;
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: scroll 35s linear infinite;
+  animation: scroll 42s linear infinite;
+  will-change: transform;
 }
 
 .marquee-wrapper:hover .marquee-track {
@@ -27,11 +29,18 @@
 @keyframes scroll {
 
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
 }
