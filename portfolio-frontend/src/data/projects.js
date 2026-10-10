@@ -4,6 +4,7 @@ import RPSImg from "../assets/rock-paper-scissor.webp";
 import calculatorImg from "../assets/calculator.webp";
 import netflixImg from "../assets/netflix.webp";
 import youtubeImg from "../assets/youtube.webp";
+import weatherImg from "../assets/weatherapp.webp"
 
 const projects = [
   {
@@ -54,6 +55,14 @@ const projects = [
     live: "https://clone-y0utube.netlify.app/",
     github: "https://github.com/pandey-9267/youtube-clone",
   },
+ {
+  img: weatherImg,
+  tags: ["HTML", "CSS", "JavaScript", "Weather API"],
+  title: "Weather App",
+  desc: "A responsive weather application that lets users search for a city and view current weather conditions using a weather API.",
+  live: "https://weather-app-ochre-iota-84.vercel.app/",
+  github: "https://github.com/pandey-9267/J.S--Weather--app-",
+ },
 ];
 
 export default projects;
