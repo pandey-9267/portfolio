@@ -67,7 +67,7 @@ function About({ profileStats }) {
           <div className="flex flex-wrap gap-6 pt-4">
             <div>
               <p className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                10+
+                15+
               </p>
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
                 Projects Built
