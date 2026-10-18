@@ -98,7 +98,7 @@ function About({ profileStats }) {
 
             <div>
               <h3 className="font-[var(--font-display)] font-extrabold text-[40px] text-secondary leading-none">
-                2+
+                10+
               </h3>
 
               <p className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant mt-1">
